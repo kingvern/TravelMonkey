@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7e043733-4fa0-41f6-bd90-389a46cf3fc4" name="Default Changelist" comment="" />
+    <list default="true" id="7e043733-4fa0-41f6-bd90-389a46cf3fc4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/containers/Home/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Home/index.jsx" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -22,19 +25,19 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="7" />
+          <entry key="css" value="8" />
           <entry key="gitignore" value="2" />
-          <entry key="js" value="23" />
-          <entry key="jsx" value="12" />
+          <entry key="js" value="27" />
+          <entry key="jsx" value="15" />
           <entry key="sol" value="2" />
           <entry key="ts" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="7" />
-          <entry key="JSX Harmony" value="12" />
-          <entry key="JavaScript" value="23" />
+          <entry key="CSS" value="8" />
+          <entry key="JSX Harmony" value="15" />
+          <entry key="JavaScript" value="27" />
           <entry key="PLAIN_TEXT" value="4" />
           <entry key="TypeScript" value="1" />
         </counts>
@@ -42,15 +45,15 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="127" />
-          <entry key="js" value="380" />
-          <entry key="jsx" value="1580" />
+          <entry key="js" value="385" />
+          <entry key="jsx" value="2024" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="127" />
-          <entry key="JSX Harmony" value="1580" />
-          <entry key="JavaScript" value="380" />
+          <entry key="JSX Harmony" value="2024" />
+          <entry key="JavaScript" value="385" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -62,11 +65,50 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/index.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+        <entry file="file://$PROJECT_DIR$/src/containers/Home/index.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="444">
+              <caret line="203" column="22" selection-start-line="203" selection-start-column="22" selection-end-line="203" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+                <element signature="e#360#410#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/PicWall.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="393">
+              <caret line="105" column="40" selection-start-line="105" selection-start-column="36" selection-end-line="105" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Market.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="179">
+              <caret line="54" column="4" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="4" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="8" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -75,21 +117,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>appchain</find>
-      <find>reap</find>
-      <find>picArray</find>
-      <find>getPic</find>
-      <find>http://123.207.75.151</find>
-      <find>&quot;name&quot;: &quot;</find>
-      <find>apiAddress</find>
-      <find>methods</find>
-      <find>post</find>
-      <find>settime</find>
-      <find>.pic-container</find>
-      <find>pic-container</find>
-      <find>pic-bg</find>
-      <find>market-title</find>
-      <find>reapFruits</find>
       <find>tree</find>
       <find>qui</find>
       <find>bg</find>
@@ -102,9 +129,24 @@
       <find>getStatus</find>
       <find>getMonkey</find>
       <find>buy</find>
-      <find>story</find>
       <find>get</find>
       <find>refres</find>
+      <find>from = '0x9728aA04922A11Db65E54ED499727666672339b5'</find>
+      <find>monkey</find>
+      <find>from</find>
+      <find>post</find>
+      <find>status</find>
+      <find>Monkey</find>
+      <find>story</find>
+      <find>Happen</find>
+      <find>timerId</find>
+      <find>timer</find>
+      <find>refreshTravleStatus</find>
+      <find>delTimer</find>
+      <find>60</find>
+      <find>picWall</find>
+      <find>000</find>
+      <find>where</find>
     </findStrings>
     <replaceStrings>
       <replace>getProduct</replace>
@@ -126,7 +168,6 @@
         <option value="$PROJECT_DIR$/src/store/mysaga.js" />
         <option value="$PROJECT_DIR$/src/components/PC.jsx" />
         <option value="$PROJECT_DIR$/src/contracts/contracts.test.js" />
-        <option value="$PROJECT_DIR$/src/config.js" />
         <option value="$PROJECT_DIR$/src/components/style/pic_wall.css" />
         <option value="$PROJECT_DIR$/src/components/Market.jsx" />
         <option value="$PROJECT_DIR$/src/containers/Home/home.css" />
@@ -135,8 +176,9 @@
         <option value="$PROJECT_DIR$/src/components/Bag.jsx" />
         <option value="$PROJECT_DIR$/src/components/Tree.jsx" />
         <option value="$PROJECT_DIR$/src/components/PicWall.jsx" />
-        <option value="$PROJECT_DIR$/src/containers/Home/index.jsx" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/config.js" />
+        <option value="$PROJECT_DIR$/src/containers/Home/index.jsx" />
       </list>
     </option>
   </component>
@@ -155,8 +197,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="115" />
-    <option name="y" value="23" />
+    <option name="x" value="-64" />
+    <option name="y" value="280" />
     <option name="width" value="1203" />
     <option name="height" value="1027" />
   </component>
@@ -176,6 +218,25 @@
               <item name="PKUChain" type="b2602c69:ProjectViewProjectNode" />
               <item name="PKUChain" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PKUChain" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PKUChain" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PKUChain" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PKUChain" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PKUChain" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PKUChain" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+              <item name="Home" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -225,17 +286,18 @@
       <updated>1539007237914</updated>
       <workItem from="1539007239269" duration="8990000" />
       <workItem from="1539084551702" duration="6483000" />
-      <workItem from="1539137946816" duration="8499000" />
+      <workItem from="1539137946816" duration="12598000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23972000" />
+    <option name="totallyTimeSpent" value="28071000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="115" y="23" width="1203" height="1027" extended-state="0" />
+    <frame x="-64" y="280" width="1203" height="1027" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3392555" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3392555" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -250,7 +312,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32941177" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32941177" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32941177" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -292,9 +354,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/store/reducer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -313,13 +372,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="39" column="35" selection-start-line="39" selection-start-column="35" selection-end-line="39" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simpleStore.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="6" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -353,16 +405,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="41" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/nervos.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -384,16 +426,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="47">
           <caret line="23" column="4" lean-forward="true" selection-start-line="23" selection-start-column="4" selection-end-line="31" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Market.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="120" column="53" selection-start-line="120" selection-start-column="41" selection-end-line="120" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -455,31 +487,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/PicWall.jsx">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
-          <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+        <state relative-caret-position="150">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpleStore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Market.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="54" column="4" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="4" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/new_eth4_fun_rn/eth4_fun_rn/node_modules/jest-environment-node/build/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="50" column="17" selection-start-line="50" selection-start-column="10" selection-end-line="50" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/PicWall.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="105" column="40" selection-start-line="105" selection-start-column="36" selection-end-line="105" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/Home/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="92" column="7" selection-start-line="92" selection-start-column="7" selection-end-line="92" selection-end-column="7" />
+        <state relative-caret-position="444">
+          <caret line="203" column="22" selection-start-line="203" selection-start-column="22" selection-end-line="203" selection-end-column="22" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
-            <element signature="e#359#409#0" expanded="true" />
+            <element signature="e#360#410#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>

@@ -32,13 +32,11 @@ import {transaction, simpleStoreContract} from '../../simpleStore'
 import nervos from '../../nervos'
 import axios from 'axios'
 
-// const from = '9b408a683b284fd3dae967bfe50528b0983c4865'
-const from = '0x9728aA04922A11Db65E54ED499727666672339b5'
-
 const {
-    apiAddress
+    apiAddress, from
 } = require('../../config')
 
+// const from = '9b408a683b284fd3dae967bfe50528b0983c4865'
 
 class Home extends React.Component {
     constructor(props) {
@@ -53,14 +51,13 @@ class Home extends React.Component {
             picWall: [], //照片墙
             market: [], //商店
             Screen: PC, //电脑图片
+            status: [1, 0, 1], //旅行状态
 
-            pics:{},
+            pics: {},
             marketData: [], //商店数据
             picArray: [], //照片墙图片序号
             picArrayy: [], //照片墙图片序号
             monkeyClass: false,
-            where: 2,
-            status: [1, 0, 1],
             i: 0
         }
     }
@@ -71,27 +68,18 @@ class Home extends React.Component {
         //开始
         this.checkLoginStatus();
         this.getProducts();
-        // this.buyProduct(4)
-
-        // this.getTree();
-        // this.getMonkey();
-        // this.getPictures();
 
     }
 
 
     loadData() {
-
-        setInterval(()=> {
-            this.refreshStatus()
-        }, 5000)
+        this.refreshStatus()
 
         setTimeout(() => {
             this.checkWalkout()
-            setInterval(()=> {
-                this.refreshTravleStatus()
-            }, 5000)
-        }, 20000)
+            this.storyHappen()
+            this.timer = setInterval(()=>this.refreshTravleStatus(), 5000)
+        }, 10000)
 
     }
 
@@ -102,30 +90,27 @@ class Home extends React.Component {
         this.getMonkey();
     }
 
-    buyProduct(i) {
-        nervos.appchain
-            .getBlockNumber()
-            .then(current => {
-                const tx = {
-                    ...transaction,
-                    validUntilBlock: +current + 88,
-                }
-                console.log("buyProduct---res")
-                return simpleStoreContract.methods.buyProduct(i).send(tx)
-            })
-            .then(res => {
-                this.setState({
-                    fruits: this.state.fruits - 2,
-                    monkeyClass: true
-                })
-                console.log("res", res)
-                if (res.hash) {
-                    return nervos.listeners.listenToTransactionReceipt(res.hash)
-                } else {
-                    throw new Error('No Transaction Hash Received')
-                }
-            })
-    }
+    // buyProduct(i) {
+    //     nervos.appchain
+    //         .getBlockNumber()
+    //         .then(current => {
+    //             const tx = {
+    //                 ...transaction,
+    //                 validUntilBlock: +current + 88,
+    //             }
+    //             console.log("buyProduct---res")
+    //             return simpleStoreContract.methods.buyProduct(i).send(tx)
+    //         })
+    //         .then(res => {
+    //
+    //             console.log("res", res)
+    //             if (res.hash) {
+    //                 return nervos.listeners.listenToTransactionReceipt(res.hash)
+    //             } else {
+    //                 throw new Error('No Transaction Hash Received')
+    //             }
+    //         })
+    // }
 
     getBananaFromTree() { //收割香蕉
         nervos.appchain
@@ -143,7 +128,7 @@ class Home extends React.Component {
                 this.getTree()
                 this.getMonkey()
                 if (res.hash) {
-                    alert('收获到了'+res+'果实，交易hash为'+res.hash)
+                    alert('收获到了' + res + '果实，交易hash为' + res.hash)
                     return nervos.listeners.listenToTransactionReceipt(res.hash)
                 } else {
 
@@ -154,6 +139,9 @@ class Home extends React.Component {
     }
 
     checkWalkout() {
+        console.log('checkWalkout',this)
+
+        console.log('checkWalkout state',this.state)
         nervos.appchain
             .getBlockNumber()
             .then(current => {
@@ -175,6 +163,16 @@ class Home extends React.Component {
             })
     }
 
+    storyHappen() {
+        axios.post(apiAddress + '/bitrun/api/v1/story_happen', {
+            "address": from,
+            "randombackground": this.state.status[0],
+            "randomanimals": this.state.status[1],
+            "state": this.state.status[2],
+            "timestamp": (60 + Math.round(new Date().getTime() / 1000)).toString()
+        }).then(res => console.log('story_happen', res))
+    }
+
     getTree() {
         simpleStoreContract.methods
             .getBananacount()
@@ -182,7 +180,7 @@ class Home extends React.Component {
                 from,
             })
             .then(treeFruits => {
-                this.setState({treeFruits:treeFruits})
+                this.setState({treeFruits: treeFruits})
                 console.log('getTree res', treeFruits)
             })
             .catch(console.error)
@@ -191,53 +189,28 @@ class Home extends React.Component {
 
     refreshTravleStatus() {
 
-
-        console.log('story_happen', {
-            "address": from,
-            "randombackground": this.state.status[0],
-            "randomanimals": this.state.status[1],
-            "state": this.state.status[2],
-            "timestamp": Math.round(new Date().getTime() / 1000).toString()
-        })
-        axios.post(apiAddress + '/bitrun/api/v1/story_happen', {
-            "address": from,
-            "randombackground": this.state.status[0],
-            "randomanimals": this.state.status[1],
-            "state": this.state.status[2],
-            "timestamp": (60 + Math.round(new Date().getTime() / 1000)).toString()
-        }).then((res) => {
-            console.log("getStatus", res);
-            var status = this.state.status
-            var monkey = this.state.monkey
-            status[2] = res.data.status
-            monkey[3] = res.data.status
-
-            this.setState({monkey: monkey, status: status})
-        })
-        // axios.get(apiAddress + '/bitrun/api/v1/get_monkey_status/'+from)
-        //     .then((res) => {
-        //     console.log("check", res);
-        //     if(res.data.pic_url){
-        //
-        //         var newPic = res.data.pic_url
-        //         var picArray = this.state.picArray
-        //         picArray.push(newPic)
-        //         this.setState({picArray})
-        //     }
-        //
-        // })
-        var newpicarr = ['https://yimixiaoyuan.top/4-1-2.jpg', 'https://yimixiaoyuan.top/2-1-2-1.jpg', 'https://yimixiaoyuan.top/2-1-2-4.jpg', 'https://yimixiaoyuan.top/3-2-1-1.jpg', 'https://yimixiaoyuan.top/2-1-2.jpg']
-        var i = this.state.i
-        var newPic = newpicarr[i]
-        i++
-        if (i == 5) i = 0
-        this.setState({i: i})
-        var picArrayy = this.state.picArrayy
-        picArrayy.push(newPic)
-        this.setState({picArrayy})
+        axios.get(apiAddress + '/bitrun/api/v1/get_monkey_status/' + from)
+            .then((res) => {
+                console.log("get_monkey_status", res);
+                if (res.data.status != 2) {
+                    this.setState({
+                        picWall: [...this.state.picWall,res.data.pic_url],
+                        where: res.data.status
+                    })
+                }else{
+                    this.setState({
+                        picWall: [...this.state.picWall,res.data.pic_url],
+                        where: res.data.status
+                    })
+                    clearInterval(this.timer)
+                }
+            })
 
     }
 
+    delTimer(){
+        clearInterval(this.timer)
+    }
 
 
     getMonkeycount() {
@@ -251,8 +224,6 @@ class Home extends React.Component {
             })
             .catch(console.error)
     }
-
-
 
 
     loadPic() {
@@ -281,7 +252,7 @@ class Home extends React.Component {
                     this.freeMonkey()
                     alert('看你没猴子，免费送你一个，收好了！')
                 }
-                else{
+                else {
                     this.loadData()
 
                 }
@@ -320,17 +291,16 @@ class Home extends React.Component {
                 from,
             })
             .then((arr) => {
-                    console.log("getMonkey success",arr)
-                this.setState({
-                    fruits:arr[3],
-                    where:arr[4]
-                })
-                //key gene mood banana state owner
+                    console.log("getMonkey success", arr)
+                    this.setState({
+                        fruits: arr[3],
+                        // where: arr[4]
+                    })
+                    //key gene mood banana state owner
                 }
             )
             .catch(console.error)
     }
-
 
 
     getowner2picture() {
@@ -341,7 +311,7 @@ class Home extends React.Component {
             })
             .then((indexs) => {
 
-                console.log('getowner2picture',indexs)
+                    console.log('getowner2picture', indexs)
                     indexs.map(
                         idx => {
                             simpleStoreContract.methods
@@ -365,7 +335,7 @@ class Home extends React.Component {
                         }
                     )
 
-                console.log("picArray", this.state.picArray)
+                    console.log("picArray", this.state.picArray)
 
                 }
             )
@@ -379,33 +349,33 @@ class Home extends React.Component {
                 from,
             })
             .then((indexs) => {
-                console.log('getowner2product',indexs)
-                var bag = [];
-                indexs.map(
-                    idx => {
-                        simpleStoreContract.methods
-                            .getProduct(idx)
-                            .call({
-                                from,
-                            })
-                            .then(goods => {
-                                // console.log("getPic", pic)
-                                if (goods) {
-                                    var goodsTyped={
-                                        key:goods[0],
-                                        name:goods[1],
-                                        price:goods[2],
-                                        effect:goods[3]
+                    console.log('getowner2product', indexs)
+                    var bag = [];
+                    indexs.map(
+                        idx => {
+                            simpleStoreContract.methods
+                                .getProduct(idx)
+                                .call({
+                                    from,
+                                })
+                                .then(goods => {
+                                    // console.log("getPic", pic)
+                                    if (goods) {
+                                        var goodsTyped = {
+                                            key: goods[0],
+                                            name: goods[1],
+                                            price: goods[2],
+                                            effect: goods[3]
+                                        }
+                                        bag.push(goodsTyped)
                                     }
-                                    bag.push(goodsTyped)
-                                }
-                                // return Promise.all(times.map(time => simpleStoreContract.methods.get(time).call({ from })))
-                            })
-                    }
-                )
+                                    // return Promise.all(times.map(time => simpleStoreContract.methods.get(time).call({ from })))
+                                })
+                        }
+                    )
 
-                this.setState({bag})
-                console.log("bag", this.state.bag)
+                    this.setState({bag})
+                    console.log("bag", this.state.bag)
                 }
             )
             .catch(console.error)
@@ -418,7 +388,7 @@ class Home extends React.Component {
                 from,
             })
             .then(len => {
-                console.log('getPictures',len)
+                console.log('getPictures', len)
                 for (let i = 1; i < len; i++) {
                     simpleStoreContract.methods
                         .getPicture(i)
@@ -427,11 +397,11 @@ class Home extends React.Component {
                         })
                         .then(pic => {
                             if (pic) {
-                                var picTyped={
-                                    key:pic[0],
-                                    bgId:pic[1],
-                                    animalId:pic[2],
-                                    monkeyStatus:pic[3]
+                                var picTyped = {
+                                    key: pic[0],
+                                    bgId: pic[1],
+                                    animalId: pic[2],
+                                    monkeyStatus: pic[3]
                                 }
                                 var pics = this.state.pics
 
@@ -446,7 +416,7 @@ class Home extends React.Component {
                         .catch(console.error)
                 }
 
-                console.log('getPics',this.state.pics)
+                console.log('getPics', this.state.pics)
                 console.log("picWall:", this.state.market)
             })
     }
@@ -458,7 +428,7 @@ class Home extends React.Component {
                 from,
             })
             .then(len => {
-                console.log('getProducts',len)
+                console.log('getProducts', len)
                 for (let i = 1; i < len; i++) {
                     simpleStoreContract.methods
                         .getProduct(i)
@@ -467,11 +437,11 @@ class Home extends React.Component {
                         })
                         .then(goods => {
                             if (goods) {
-                                var goodsTyped={
-                                    key:goods[0],
-                                    name:goods[1],
-                                    price:goods[2],
-                                    effect:goods[3]
+                                var goodsTyped = {
+                                    key: goods[0],
+                                    name: goods[1],
+                                    price: goods[2],
+                                    effect: goods[3]
                                 }
                                 var market = this.state.market
                                 market.push(goodsTyped)
@@ -558,23 +528,25 @@ class Home extends React.Component {
             <div className='stage'>
                 {/*<Header hasLogin={this.state.hasLogin} onClick={this.freeMonkey.bind(this)}/>*/}
                 <img className="bg" src={bg}/>
-                <PicWall data={this.state.picArrayy}/>
+                <PicWall data={this.state.picWall}/>
                 <PC data={this.state.Screen}/>
                 <Bed/>
-                <Monkey data={this.state.monkeyClass} where={this.state.monkey[3]}/>
+                <Monkey data={this.state.monkeyClass} where={this.state.where}/>
                 {/*<Quilt onCick={()=>console.log('this.state:',this.state)} />*/}
 
                 <Tree data={this.state.treeFruits} onClick={this.getBananaFromTree.bind(this)}/>
 
                 {/*<Monkey/>*/}
-                <div className="bg_quilt" >
-                    <img src={quilt} onClick={()=>console.log('this.state:',this.state)}/>
+                <div className="bg_quilt">
+                    <img src={quilt} onClick={() => console.log('this.state:', this.state)}/>
                 </div>
 
                 {/*<img className="bg_pic" src={frontbg} />*/}
                 <img className="bg_frontbg" src={this.state.monkey[3] == 2 ? end : frontbg}/>
 
-                <Market data={this.state.market} fruits={this.state.fruits} onClick={this.buyProduct.bind(this)}/>
+                <Market data={this.state.market} fruits={this.state.fruits}
+                    // onClick={this.buyProduct.bind(this)}
+                />
                 <Bag bag={this.state.bag}/>
                 <Wallet fruits={this.state.fruits} onClick={() => {
                     var monkey = this.state.monkey
