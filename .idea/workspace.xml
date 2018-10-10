@@ -172,6 +172,11 @@
               <item name="PKUChain" type="b2602c69:ProjectViewProjectNode" />
               <item name="PKUChain" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="PKUChain" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PKUChain" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -220,12 +225,12 @@
       <updated>1539007237914</updated>
       <workItem from="1539007239269" duration="8990000" />
       <workItem from="1539084551702" duration="6483000" />
-      <workItem from="1539137946816" duration="8204000" />
+      <workItem from="1539137946816" duration="8499000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23677000" />
+    <option name="totallyTimeSpent" value="23972000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="115" y="23" width="1203" height="1027" extended-state="0" />
