@@ -12,6 +12,10 @@ import Modal from 'react-modal';
 import axios from "axios";
 
 require('./style/pic_wall.css')
+const {
+    apiAddress
+} = require('../config')
+
 
 const Pic = ({ pic}) => {
     // const _time = new Date(+time)
@@ -55,7 +59,7 @@ class PicWall extends React.Component {
 
     openModal() {
         console.log("arrstring",this.props.data.join(","))
-        axios.post('http://123.207.75.151:9996/bitrun/api/v1/get_images',{"images":this.props.data.join(",")})
+        axios.post(apiAddress+'/bitrun/api/v1/get_images',{"images":this.props.data.join(",")})
             .then( (res)=>{
                 console.log(res);
                 this.setState({times:res.data})
@@ -70,26 +74,6 @@ class PicWall extends React.Component {
     }
 
     componentDidMount() {
-        // const from = nervos.appchain.accounts.wallet[0] ? nervos.appchain.accounts.wallet[0].address : ''
-        // const from = 'e3fba7efa7e9b68b18c31f42b41c2dff7dc69b0c'
-        // simpleStoreContract.methods
-        //     .getList()
-        //     .call({
-        //         from,
-        //     })
-        //     .then(times => {
-        //         times.reverse()
-        //         this.setState({times})
-        //         return Promise.all(times.map(time => simpleStoreContract.methods.get(time).call({from})))
-        //     })
-        //     .then(texts => {
-        //         this.setState({texts})
-        //     })
-        //     .then(() => {
-        //             console.log(this.state)
-        //         }
-        //     )
-        //     .catch(console.error)
         var times = []
         var texts = []
         for(let i = 0;i < 10; i++){
@@ -121,12 +105,12 @@ class PicWall extends React.Component {
                         <div className="pic-container">
                         {this.props.data.map((pic, idx) => (
                             <Pic
-                                pic={pic}
+                                pic={pic} key={idx}
                             />
                         ))}
                         </div>
                     </div>
-                    <button onClick={this.closeModal}>close</button>
+                    {/*<button onClick={this.closeModal}>close</button>*/}
                 </Modal>
             </div>
 

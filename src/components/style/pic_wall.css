@@ -39,11 +39,12 @@
 
 
 .pic-bg {
-    flex-direction: column;
+    /*flex-direction: column;*/
     /*border: 1px solid black;*/
     width: 400px;
     height: 200px;
-    margin-bottom: 100px;
+    margin:20px;
+    /*margin-bottom: 100px;*/
     align-items: center;
     align-self: center;
     display: flex;
@@ -52,11 +53,9 @@
     justify-content: space-around;
 }
 .pic-container{
-    margin-left: 350px;
-    margin-top:200px;
+    /*margin-left: 350px;*/
     flex-direction: row;
     /*border: 1px solid black;*/
-    width: 1400px;
     align-items: center;
     align-self: center;
     display: flex;

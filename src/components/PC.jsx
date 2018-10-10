@@ -6,6 +6,9 @@ import './style/pc.css'
 import Modal from "react-modal";
 import axios from "axios";
 
+const {
+    apiAddress
+} = require('../config')
 
 
 class PC extends React.Component {
@@ -21,7 +24,7 @@ class PC extends React.Component {
 
     openModal() {
         this.setState({modalIsOpen: true});
-            axios.get('http://123.207.75.151:9996/bitrun/api/v1/get_image/1')
+            axios.get(apiAddress+'/bitrun/api/v1/get_image/1')
                 .then( (res)=>{
                     console.log(res);
                     this.setState({pic: res.data})

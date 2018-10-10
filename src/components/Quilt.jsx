@@ -3,7 +3,7 @@ import quilt from '../images/quilt.png'
 import './style/quilt.css'
 
 
-const Quilt = () => (
+const Quilt = (onClick) => (
         <div className="bg_quilt" >
             <img src={quilt} />
         </div>

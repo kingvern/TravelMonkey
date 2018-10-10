@@ -1,6 +1,14 @@
-.bg {
+.stage{
 
     position: relative;
+    width: 1920px;
+    height: 1080px;
+
+    margin: 0 auto;
+}
+.bg {
+
+    position: absolute;
     top:0;
     left: 0;
     background-size: cover;
@@ -22,15 +30,15 @@
 
 .bg_bit{
     position: absolute;
-    left: 1000px;
-    top: 500px;
+    left: 770px;
+    top: 450px;
     pointer-events: none;
 }
 
 .bg_frontbg{
     position: absolute;
     left: 0;
-    top: 0;
+    bottom: 0;
     pointer-events: none;
 }
 
@@ -104,7 +112,15 @@
     position: fixed;
     /*width: 100%;*/
     height: 100%;
-    background: url("../../images/pic-wall-bg.png") no-repeat;
+
+    overflow:scroll;
+    /*background: url("../../images/pic-wall-bg.png") no-repeat;*/
     /*background-size: cover;*/
 
+}
+.market-title{
+    position: absolute;
+    top:0;
+    left:400px;
+    font-size: 40px;
 }

@@ -26,13 +26,14 @@ const Thing = ({thingPic}) => {
 }
 
 class Bag extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             times: [],
             texts: [],
             modalIsOpen: false,
-            goodsPics: [goods0]
+            goodsPics:[goods0,goods1,goods2,goods3,goods4],
+
         }
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
@@ -40,6 +41,9 @@ class Bag extends React.Component {
     }
 
     openModal() {
+
+        console.log('bag',this.props)
+        console.log('bag',this.state)
         this.setState({modalIsOpen: true});
     }
 
@@ -81,12 +85,13 @@ class Bag extends React.Component {
 
                     <div className="bag-bg">
                         <div className="thing-container">
-                    {this.state.goodsPics.map((thingPic, idx) => (
+                    {this.props.bag.map((goods, idx) => (
                         <Thing
-                            thingPic={thingPic}/>
+                            key={idx}
+                            thingPic={this.state.goodsPics[goods.key-1] }/>
                     ))}
                         </div>
-                    <button onClick={this.submitBag}>close</button>
+                    {/*<button onClick={this.submitBag}>close</button>*/}
                     </div>
                 </Modal>
             </div>

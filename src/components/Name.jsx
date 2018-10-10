@@ -7,13 +7,15 @@ import {simpleStoreContract} from '../simpleStore'
 
 import nervos from '../nervos'
 
+import {connect} from 'react-redux';
+
 
 const from = '9b408a683b284fd3dae967bfe50528b0983c4865'
 
 require('./style/name.css')
 
 const nameModalStyle = {
-    content : {
+    content: {
         top: '30%',
         left: '50%',
         right: 'auto',
@@ -49,8 +51,8 @@ class Name extends React.Component {
     }
 
     componentDidMount() {
-        console.log("hasLogin:",this.props.hasLogin)
-        if(!this.props.hasLogin) {
+        console.log("hasLogin:", this.props.hasLogin)
+        if (!this.props.hasLogin) {
             this.openModal()
             // this.freeMonkey()
         }
@@ -59,7 +61,7 @@ class Name extends React.Component {
 
 
     render() {
-        if(this.props.hasLogin){
+        if (this.props.hasLogin) {
             return (
                 <div>
                 </div>
@@ -75,9 +77,9 @@ class Name extends React.Component {
                         contentLabel=""
                     >
 
-                        <div className="name-bg" >
-                           看你还没来过，送你个猴吧
-                            <button onClick={this.props.onClick}>点击</button>
+                        <div className="name-bg">
+                            看你还没来过，送你个猴吧
+                            <button onClick={this.props.onClickFreeMonkey}>点击</button>
                         </div>
                     </Modal>
                 </div>
@@ -87,4 +89,19 @@ class Name extends React.Component {
     }
 }
 
-export default Name
+const mapStateToProps = (state) => {
+    return {}
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onClickFreeMonkey() {
+            const action = {
+                type: 'free_monkey'
+            }
+            dispatch(action);
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Name)

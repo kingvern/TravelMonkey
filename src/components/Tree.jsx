@@ -20,20 +20,12 @@ class Tree extends React.Component {
         fruits: this.props.fruits
     }
     componentDidMount() {
-        // let FruitData = this.getFruitData()
-        // this.setState({
-        //     fruits:FruitData
-        // })
     }
-
-
-
 
     render() {
         return (
-            <div>
                 <img className="bg_tree" src={this.props.data == 0 ? tree_noFruit : tree_hasFruit} onClick={this.props.data == 0 ? null : this.props.onClick}/>
-            </div>
+
         )
     }
 }
