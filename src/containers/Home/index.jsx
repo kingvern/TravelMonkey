@@ -29,20 +29,28 @@ import './home.css'
 
 import {transaction, simpleStoreContract} from '../../simpleStore'
 
-import nervos from '../../nervos'
+// import nervos from '../../nervos'
+
 import axios from 'axios'
 
+const nervos = require("../../nervos");
+
+
 const {
-    apiAddress, from
+    apiAddress
 } = require('../../config')
 
 // const from = '9b408a683b284fd3dae967bfe50528b0983c4865'
+
+// const from = window.neuron.getAccount()
+
 
 class Home extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
+            from:'',
             hasLogin: false, //有无猴
             monkey: {}, //猴子状态
             fruits: 0, //钱
@@ -60,14 +68,26 @@ class Home extends React.Component {
             monkeyClass: false,
             i: 0
         }
+
     }
 
     componentDidMount() {
-        //其实没用
-        this.getMonkeycount()
-        //开始
-        this.checkLoginStatus();
-        this.getProducts();
+        console.log('window',window)
+        setTimeout(
+            ()=>window.nervos.appchain.getAccounts().then(
+                account=>{
+                    console.log('account',account)
+                    this.setState({from:account[0]})
+                    //其实没用
+                    this.getMonkeycount()
+                    //开始
+                    this.checkLoginStatus();
+                    this.getProducts();
+                }
+            ), 5000
+        )
+
+
 
     }
 
@@ -118,6 +138,7 @@ class Home extends React.Component {
             .then(current => {
                 const tx = {
                     ...transaction,
+                    from: this.state.from,
                     validUntilBlock: +current + 88,
                 }
                 console.log("getBananaFromTree---res")
@@ -147,6 +168,7 @@ class Home extends React.Component {
             .then(current => {
                 const tx = {
                     ...transaction,
+                    from: this.state.from,
                     validUntilBlock: +current + 88,
                 }
                 console.log("checkWalkout---res")
@@ -165,7 +187,7 @@ class Home extends React.Component {
 
     storyHappen() {
         axios.post(apiAddress + '/bitrun/api/v1/story_happen', {
-            "address": from,
+            "address": this.state.from,
             "randombackground": this.state.status[0],
             "randomanimals": this.state.status[1],
             "state": this.state.status[2],
@@ -177,7 +199,7 @@ class Home extends React.Component {
         simpleStoreContract.methods
             .getBananacount()
             .call({
-                from,
+                from:this.state.from,
             })
             .then(treeFruits => {
                 this.setState({treeFruits: treeFruits})
@@ -189,7 +211,7 @@ class Home extends React.Component {
 
     refreshTravleStatus() {
 
-        axios.get(apiAddress + '/bitrun/api/v1/get_monkey_status/' + from)
+        axios.get(apiAddress + '/bitrun/api/v1/get_monkey_status/' + this.state.from)
             .then((res) => {
                 console.log("get_monkey_status", res);
                 if (res.data.status != 2) {
@@ -217,7 +239,7 @@ class Home extends React.Component {
         simpleStoreContract.methods
             .getMonkeycount()
             .call({
-                from,
+                from:this.state.from,
             })
             .then(res => {
                 console.log('getMonkeycount res', res)
@@ -243,7 +265,7 @@ class Home extends React.Component {
         simpleStoreContract.methods
             .checkFirst()
             .call({
-                from,
+                from:this.state.from,
             })
             .then(status => {
                 this.setState({hasLogin: status})
@@ -267,6 +289,7 @@ class Home extends React.Component {
             .then(current => {
                 const tx = {
                     ...transaction,
+                    from: this.state.from,
                     validUntilBlock: +current + 88,
                 }
                 console.log("freeMonkey---res")
@@ -288,7 +311,7 @@ class Home extends React.Component {
         simpleStoreContract.methods
             .getMonkey()
             .call({
-                from,
+                from:this.state.from,
             })
             .then((arr) => {
                     console.log("getMonkey success", arr)
@@ -307,7 +330,7 @@ class Home extends React.Component {
         simpleStoreContract.methods
             .getowner2picture()
             .call({
-                from,
+                from:this.state.from,
             })
             .then((indexs) => {
 
@@ -317,7 +340,7 @@ class Home extends React.Component {
                             simpleStoreContract.methods
                                 .getPicture(idx)
                                 .call({
-                                    from,
+                                    from:this.state.from,
                                 })
                                 .then(pic => {
                                     // console.log("getPic", pic)
@@ -330,7 +353,7 @@ class Home extends React.Component {
                                         picArray = [...new Set(picArray)];
                                         this.setState({picArray})
                                     }
-                                    // return Promise.all(times.map(time => simpleStoreContract.methods.get(time).call({ from })))
+                                    // return Promise.all(times.map(time => simpleStoreContract.methods.get(time).call({ from:this.state.from })))
                                 })
                         }
                     )
@@ -346,7 +369,7 @@ class Home extends React.Component {
         simpleStoreContract.methods
             .getowner2product()
             .call({
-                from,
+                from:this.state.from,
             })
             .then((indexs) => {
                     console.log('getowner2product', indexs)
@@ -356,7 +379,7 @@ class Home extends React.Component {
                             simpleStoreContract.methods
                                 .getProduct(idx)
                                 .call({
-                                    from,
+                                    from:this.state.from,
                                 })
                                 .then(goods => {
                                     // console.log("getPic", pic)
@@ -369,7 +392,7 @@ class Home extends React.Component {
                                         }
                                         bag.push(goodsTyped)
                                     }
-                                    // return Promise.all(times.map(time => simpleStoreContract.methods.get(time).call({ from })))
+                                    // return Promise.all(times.map(time => simpleStoreContract.methods.get(time).call({ from:this.state.from })))
                                 })
                         }
                     )
@@ -385,7 +408,7 @@ class Home extends React.Component {
         simpleStoreContract.methods
             .getPicturelength()
             .call({
-                from,
+                from:this.state.from,
             })
             .then(len => {
                 console.log('getPictures', len)
@@ -393,7 +416,7 @@ class Home extends React.Component {
                     simpleStoreContract.methods
                         .getPicture(i)
                         .call({
-                            from,
+                            from:this.state.from,
                         })
                         .then(pic => {
                             if (pic) {
@@ -408,7 +431,7 @@ class Home extends React.Component {
                                 pics.push(picTyped)
                                 this.setState({pics})
                             }
-                            // return Promise.all(times.map(time => simpleStoreContract.methods.get(time).call({ from })))
+                            // return Promise.all(times.map(time => simpleStoreContract.methods.get(time).call({ from:this.state.from })))
                         })
                         // .then(texts => {
                         //     this.setState({ texts })
@@ -425,7 +448,7 @@ class Home extends React.Component {
         simpleStoreContract.methods
             .getProductlength()
             .call({
-                from,
+                from:this.state.from,
             })
             .then(len => {
                 console.log('getProducts', len)
@@ -433,7 +456,7 @@ class Home extends React.Component {
                     simpleStoreContract.methods
                         .getProduct(i)
                         .call({
-                            from,
+                            from:this.state.from,
                         })
                         .then(goods => {
                             if (goods) {
@@ -447,7 +470,7 @@ class Home extends React.Component {
                                 market.push(goodsTyped)
                                 this.setState({market})
                             }
-                            // return Promise.all(times.map(time => simpleStoreContract.methods.get(time).call({ from })))
+                            // return Promise.all(times.map(time => simpleStoreContract.methods.get(time).call({ from:this.state.from })))
                         })
                         .catch(console.error)
                 }
@@ -470,7 +493,7 @@ class Home extends React.Component {
     //             simpleStoreContract.methods
     //                 .getPictureLength()
     //                 .call({
-    //                     from,
+    //                     from:this.state.from,
     //                 })
     //                 .then(picLength => {
     //
@@ -478,7 +501,7 @@ class Home extends React.Component {
     //                     simpleStoreContract.methods
     //                         .getPicture(picLength - 1)
     //                         .call({
-    //                             from,
+    //                             from:this.state.from,
     //                         })
     //                         .then(picArr => {
     //                             console.log("picArr", picArr)
@@ -544,7 +567,7 @@ class Home extends React.Component {
                 {/*<img className="bg_pic" src={frontbg} />*/}
                 <img className="bg_frontbg" src={this.state.monkey[3] == 2 ? end : frontbg}/>
 
-                <Market data={this.state.market} fruits={this.state.fruits}
+                <Market data={this.state.market} from={this.state.from} fruits={this.state.fruits}
                     // onClick={this.buyProduct.bind(this)}
                 />
                 <Bag bag={this.state.bag}/>

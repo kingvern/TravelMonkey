@@ -15,10 +15,10 @@ import market_confirm from '../images/market-confirm.png'
 import market_pocket from '../images/market-pocket.png'
 import Modal from 'react-modal';
 import {simpleStoreContract, transaction} from '../simpleStore'
-import nervos from "../nervos";
 
 require('./style/market.css')
 
+const nervos = require("../nervos");
 
 class Market extends React.Component {
     constructor() {
@@ -54,11 +54,13 @@ class Market extends React.Component {
 
     buyProduct(i) {
         console.log('buyProduct start')
+        console.log('from',this.props.from)
         nervos.appchain
             .getBlockNumber()
             .then(current => {
                 const tx = {
                     ...transaction,
+                    from: this.props.from,
                     validUntilBlock: +current + 88,
                 }
                 console.log("buyProduct---res")

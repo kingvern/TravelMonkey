@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "first-forever",
   "dependencies": {
-    "@nervos/chain": "^0.17.4",
+    "@nervos/chain": "^0.18",
     "axios": "^0.18.0",
     "es6-promise": "^4.2.4",
     "fetch-jsonp": "^1.1.3",
