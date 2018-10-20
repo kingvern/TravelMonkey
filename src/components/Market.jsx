@@ -2,10 +2,10 @@ import React from 'react'
 
 
 import marketModalStyle from '../modalStyle'
-import pic from '../images/pic.jpg'
 import market_bg from '../images/market-bg.png'
 import market_pricebar from '../images/market-priceban.png'
 import market from '../images/market.png'
+import market_m from '../images/market_m.png'
 import goods0 from '../images/goods0.png'
 import goods1 from '../images/goods1.png'
 import goods2 from '../images/goods2.png'
@@ -15,6 +15,12 @@ import market_confirm from '../images/market-confirm.png'
 import market_pocket from '../images/market-pocket.png'
 import Modal from 'react-modal';
 import {simpleStoreContract, transaction} from '../simpleStore'
+import bag_m from "../images/bag_m.png";
+import bag from "../images/bag.png";
+
+const {
+    pc_media
+} = require('../config')
 
 require('./style/market.css')
 
@@ -95,8 +101,11 @@ class Market extends React.Component {
 
     render() {
         return (
-            <div>
-                <img className="market-button" src={market} onClick={this.openModal}/>
+            <React.Fragment>
+                <picture>
+                    <source srcSet={market} media={pc_media}/>
+                    <img src={market_m} className="market-button ui_button" onClick={this.openModal}/>
+                </picture>
                 <Modal
                     isOpen={this.state.modalIsOpen}
                     onRequestClose={this.closeModal}
@@ -123,7 +132,7 @@ class Market extends React.Component {
                         <span className="market-title">点击商品直接购买，点击弹窗外关闭弹窗</span>
                     </div>
                 </Modal>
-            </div>
+            </React.Fragment>
         )
     }
 }

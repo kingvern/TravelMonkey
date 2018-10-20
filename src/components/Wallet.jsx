@@ -8,7 +8,15 @@ import {simpleStoreContract} from '../simpleStore'
 import nervos from '../nervos'
 
 import wallet from '../images/wallet.png'
+import wallet_m from '../images/wallet_m.png'
 import walletModalStyle  from '../modalStyle'
+import bag from "../images/bag.png";
+import bag_m from "../images/bag_m.png";
+
+
+const {
+    pc_media
+} = require('../config')
 
 
 require('./style/wallet.css')
@@ -45,7 +53,10 @@ class Wallet extends React.Component {
     render() {
         return (
             <div>
-                <img src={wallet} className="wallet-button" onClick={this.props.onClick} />
+                <picture>
+                    <source srcSet={wallet} media={pc_media}/>
+                    <img src={wallet_m} className="wallet-button ui_button" />
+                </picture>
                 <span className="wallet-button">{this.props.fruits}</span>
             </div>
         )

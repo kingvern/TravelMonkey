@@ -3,7 +3,6 @@ import {simpleStoreContract} from '../simpleStore'
 
 require('./tree.css')
 
-const pic = '../../public/images/pic.jpg'
 
 const Fruit = () => {
     return (

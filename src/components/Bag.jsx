@@ -2,8 +2,8 @@ import React from 'react'
 
 
 import bagModalStyle  from '../modalStyle'
-import pic from '../images/pic.jpg'
 import bag from '../images/bag.png'
+import bag_m from '../images/bag_m.png'
 import goods0 from '../images/goods0.png'
 import goods1 from '../images/goods1.png'
 import goods2 from '../images/goods2.png'
@@ -11,7 +11,12 @@ import goods3 from '../images/goods3.png'
 import goods4 from '../images/goods4.png'
 import Modal from 'react-modal';
 import {simpleStoreContract} from '../simpleStore'
+import bg from "../images/bg.png";
 
+
+const {
+    pc_media
+} = require('../config')
 
 require('./style/bag.css')
 
@@ -74,8 +79,12 @@ class Bag extends React.Component {
 
     render() {
         return (
-            <div>
-                <img src={bag} className="bag-button" onClick={this.openModal} />
+            <React.Fragment>
+                <picture>
+                    <source  srcset={bag} media={pc_media} />
+                    <img src={bag_m} className="bag-button ui_button" onClick={this.openModal} />
+                </picture>
+
                 <Modal
                     isOpen={this.state.modalIsOpen}
                     onRequestClose={this.closeModal}
@@ -94,7 +103,7 @@ class Bag extends React.Component {
                     {/*<button onClick={this.submitBag}>close</button>*/}
                     </div>
                 </Modal>
-            </div>
+            </React.Fragment>
         )
     }
 }

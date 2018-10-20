@@ -1,10 +1,12 @@
 import React from 'react'
-import logo from '../../images/logo.svg'
 import bg from '../../images/bg.png'
+import bg_m from '../../images/bg_m.png'
+import goHome_m from '../../images/goHome_m.png'
+import vip_m from '../../images/vip_m.png'
 
-import bed from '../../images/bed.png'
-import end from '../../images/end.jpg'
 import frontbg from '../../images/frontbg.png'
+import frontbg_m from '../../images/frontbg_m.png'
+
 import pc from '../../images/pc.png'
 
 import quilt from '../../images/quilt.png'
@@ -37,12 +39,15 @@ const nervos = require("../../nervos");
 
 
 const {
-    apiAddress
+    apiAddress, pc_media
 } = require('../../config')
 
 // const from = '9b408a683b284fd3dae967bfe50528b0983c4865'
 
 // const from = window.neuron.getAccount()
+
+
+const mobile_media = "(max-width:30em)"
 
 
 class Home extends React.Component {
@@ -127,7 +132,7 @@ class Home extends React.Component {
     //             if (res.hash) {
     //                 return nervos.listeners.listenToTransactionReceipt(res.hash)
     //             } else {
-    //                 throw new Error('No Transaction Hash Received')
+    //                 alert('No Transaction Hash Received')
     //             }
     //         })
     // }
@@ -154,7 +159,7 @@ class Home extends React.Component {
                 } else {
 
                     alert('交易失败！')
-                    throw new Error('No Transaction Hash Received')
+                    alert('No Transaction Hash Received')
                 }
             })
     }
@@ -180,7 +185,7 @@ class Home extends React.Component {
                 if (res.hash) {
                     return nervos.listeners.listenToTransactionReceipt(res.hash)
                 } else {
-                    throw new Error('No Transaction Hash Received')
+                    alert('No Transaction Hash Received')
                 }
             })
     }
@@ -298,11 +303,62 @@ class Home extends React.Component {
             .then(res => {
                 console.log("res", res)
                 this.getMonkey()
-                this.loadData()
+                this.refreshStatus()
                 if (res.hash) {
                     return nervos.listeners.listenToTransactionReceipt(res.hash)
                 } else {
-                    throw new Error('No Transaction Hash Received')
+                    alert('No Transaction Hash Received')
+                }
+            })
+    }
+
+    addBanana(n) {
+        nervos.appchain
+            .getBlockNumber()
+            .then(current => {
+                let m = n + 1
+                const tx = {
+                    ...transaction,
+                    value: '0x0' + m,
+                    from: this.state.from,
+                    validUntilBlock: +current + 88,
+                }
+                console.log("freeMonkey---res")
+                return simpleStoreContract.methods.addBanana(n).send(tx)
+            })
+            .then(res => {
+                console.log("res", res)
+                this.getMonkey()
+                this.refreshStatus()
+                if (res.hash) {
+                    return nervos.listeners.listenToTransactionReceipt(res.hash)
+                } else {
+                    alert('No Transaction Hash Received')
+                }
+            })
+    }
+
+    backHome() {
+        nervos.appchain
+            .getBlockNumber()
+            .then(current => {
+                const tx = {
+                    ...transaction,
+                    from: this.state.from,
+                    validUntilBlock: +current + 88,
+                }
+                console.log("backHome---res")
+                return simpleStoreContract.methods.backHome().send(tx)
+            })
+            .then(res => {
+                console.log("backHome res", res)
+                this.getMonkey()
+                this.refreshStatus()
+                if (res.hash) {
+                    console.log("backHome success")
+                    return nervos.listeners.listenToTransactionReceipt(res.hash)
+                } else {
+                    alert('No Transaction Hash Received')
                 }
             })
     }
@@ -550,23 +606,25 @@ class Home extends React.Component {
         return (
             <div className='stage'>
                 {/*<Header hasLogin={this.state.hasLogin} onClick={this.freeMonkey.bind(this)}/>*/}
-                <img className="bg" src={bg}/>
+                <picture  >
+                    <source   srcset={bg} media={pc_media} />
+                    <img  className="bg" src={bg_m}/>
+                </picture>
                 <PicWall data={this.state.picWall}/>
+
+                <Tree data={this.state.treeFruits} onClick={this.getBananaFromTree.bind(this)}/>
                 <PC data={this.state.Screen}/>
                 <Bed/>
                 <Monkey data={this.state.monkeyClass} where={this.state.where}/>
-                {/*<Quilt onCick={()=>console.log('this.state:',this.state)} />*/}
-
-                <Tree data={this.state.treeFruits} onClick={this.getBananaFromTree.bind(this)}/>
 
                 {/*<Monkey/>*/}
-                <div className="bg_quilt">
-                    <img src={quilt} onClick={() => console.log('this.state:', this.state)}/>
-                </div>
 
-                {/*<img className="bg_pic" src={frontbg} />*/}
-                <img className="bg_frontbg" src={this.state.monkey[3] == 2 ? end : frontbg}/>
+                <Quilt onCick={()=>console.log('this.state:',this.state)} />
 
+                {/*<picture>*/}
+                    {/*<source srcSet={frontbg} media={pc_media}/>*/}
+                    {/*<img className="bg_frontbg" src={frontbg_m}/>*/}
+                {/*</picture>*/}
                 <Market data={this.state.market} from={this.state.from} fruits={this.state.fruits}
                     // onClick={this.buyProduct.bind(this)}
                 />
@@ -576,6 +634,14 @@ class Home extends React.Component {
                     monkey[3] = 2
                     this.setState({monkey: monkey})
                 }}/>
+                <picture>
+                    <source srcSet={vip_m} media={pc_media}/>
+                    <img className="vip_button ui_button" src={vip_m} onClick={()=>this.addBanana(2)}/>
+                </picture>
+                <picture>
+                    <source srcSet={goHome_m} media={pc_media}/>
+                    <img className="goHome_button ui_button" src={goHome_m} oonClick={()=>this.backHome()}/>
+                </picture>
 
             </div>)
     }

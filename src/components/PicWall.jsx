@@ -1,6 +1,7 @@
 import React from 'react'
-import pic from '../images/pic.jpg'
 import pic_wall from '../images/pic-wall-bg.png'
+
+import pic_wall_m from '../images/pic_wall_m.png'
 import {Link} from 'react-router-dom'
 import {simpleStoreContract} from '../simpleStore'
 
@@ -10,10 +11,12 @@ import nervos from '../nervos'
 
 import Modal from 'react-modal';
 import axios from "axios";
+import bag from "../images/bag.png";
+import bag_m from "../images/bag_m.png";
 
 require('./style/pic_wall.css')
 const {
-    apiAddress
+    apiAddress, pc_media
 } = require('../config')
 
 
@@ -91,9 +94,10 @@ class PicWall extends React.Component {
 
         return (
             <div>
-                <div className="pic_wall_button" onClick={this.openModal}>
-                    <img src={pic_wall} className="pic_wall_bg_l"/>
-                </div>
+                    <picture>
+                        <source srcSet={pic_wall} media={pc_media}/>
+                        <img src={pic_wall_m} className="pic_wall_bg_l ui_button" onClick={this.openModal}/>
+                    </picture>
                 <Modal
                     isOpen={this.state.modalIsOpen}
                     onRequestClose={this.closeModal}
