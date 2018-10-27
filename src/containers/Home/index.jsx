@@ -1,6 +1,6 @@
 import React from 'react'
 import bg from '../../images/bg.png'
-import bg_m from '../../images/bg_m.png'
+import bg_m from '../../images/bg_m.jpg'
 import goHome_m from '../../images/goHome_m.png'
 import vip_m from '../../images/vip_m.png'
 
@@ -55,7 +55,7 @@ class Home extends React.Component {
         super(props)
 
         this.state = {
-            from:'',
+            from: '',
             hasLogin: false, //有无猴
             monkey: {}, //猴子状态
             fruits: 0, //钱
@@ -77,21 +77,22 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
-        console.log('window',window)
-        setTimeout(
-            ()=>window.nervos.appchain.getAccounts().then(
-                account=>{
-                    console.log('account',account)
-                    this.setState({from:account[0]})
-                    //其实没用
-                    this.getMonkeycount()
-                    //开始
-                    this.checkLoginStatus();
-                    this.getProducts();
-                }
-            ), 5000
-        )
-
+        console.log('window', window)
+        // setTimeout(
+        // ()=>window.nervos.appchain.getAccounts().then(
+        // ()=>window.neuron.getAccount().then(
+        //     account=>{
+        //         console.log('account',account)
+        this.setState({from: window.neuron.getAccount()})
+        // this.setState({from: ''})
+        //其实没用
+        this.getMonkeycount()
+        //开始
+        this.checkLoginStatus();
+        this.getProducts();
+        //     }
+        // ), 5000
+        // )
 
 
     }
@@ -103,7 +104,7 @@ class Home extends React.Component {
         setTimeout(() => {
             this.checkWalkout()
             this.storyHappen()
-            this.timer = setInterval(()=>this.refreshTravleStatus(), 5000)
+            this.timer = setInterval(() => this.refreshTravleStatus(), 5000)
         }, 10000)
 
     }
@@ -165,9 +166,9 @@ class Home extends React.Component {
     }
 
     checkWalkout() {
-        console.log('checkWalkout',this)
+        console.log('checkWalkout', this)
 
-        console.log('checkWalkout state',this.state)
+        console.log('checkWalkout state', this.state)
         nervos.appchain
             .getBlockNumber()
             .then(current => {
@@ -204,7 +205,7 @@ class Home extends React.Component {
         simpleStoreContract.methods
             .getBananacount()
             .call({
-                from:this.state.from,
+                from: this.state.from,
             })
             .then(treeFruits => {
                 this.setState({treeFruits: treeFruits})
@@ -221,12 +222,12 @@ class Home extends React.Component {
                 console.log("get_monkey_status", res);
                 if (res.data.status != 2) {
                     this.setState({
-                        picWall: [...this.state.picWall,res.data.pic_url],
+                        picWall: [...this.state.picWall, res.data.pic_url],
                         where: res.data.status
                     })
-                }else{
+                } else {
                     this.setState({
-                        picWall: [...this.state.picWall,res.data.pic_url],
+                        picWall: [...this.state.picWall, res.data.pic_url],
                         where: res.data.status
                     })
                     clearInterval(this.timer)
@@ -235,7 +236,7 @@ class Home extends React.Component {
 
     }
 
-    delTimer(){
+    delTimer() {
         clearInterval(this.timer)
     }
 
@@ -244,7 +245,7 @@ class Home extends React.Component {
         simpleStoreContract.methods
             .getMonkeycount()
             .call({
-                from:this.state.from,
+                from: this.state.from,
             })
             .then(res => {
                 console.log('getMonkeycount res', res)
@@ -270,7 +271,7 @@ class Home extends React.Component {
         simpleStoreContract.methods
             .checkFirst()
             .call({
-                from:this.state.from,
+                from: this.state.from,
             })
             .then(status => {
                 this.setState({hasLogin: status})
@@ -367,7 +368,7 @@ class Home extends React.Component {
         simpleStoreContract.methods
             .getMonkey()
             .call({
-                from:this.state.from,
+                from: this.state.from,
             })
             .then((arr) => {
                     console.log("getMonkey success", arr)
@@ -386,7 +387,7 @@ class Home extends React.Component {
         simpleStoreContract.methods
             .getowner2picture()
             .call({
-                from:this.state.from,
+                from: this.state.from,
             })
             .then((indexs) => {
 
@@ -396,7 +397,7 @@ class Home extends React.Component {
                             simpleStoreContract.methods
                                 .getPicture(idx)
                                 .call({
-                                    from:this.state.from,
+                                    from: this.state.from,
                                 })
                                 .then(pic => {
                                     // console.log("getPic", pic)
@@ -425,7 +426,7 @@ class Home extends React.Component {
         simpleStoreContract.methods
             .getowner2product()
             .call({
-                from:this.state.from,
+                from: this.state.from,
             })
             .then((indexs) => {
                     console.log('getowner2product', indexs)
@@ -435,7 +436,7 @@ class Home extends React.Component {
                             simpleStoreContract.methods
                                 .getProduct(idx)
                                 .call({
-                                    from:this.state.from,
+                                    from: this.state.from,
                                 })
                                 .then(goods => {
                                     // console.log("getPic", pic)
@@ -464,7 +465,7 @@ class Home extends React.Component {
         simpleStoreContract.methods
             .getPicturelength()
             .call({
-                from:this.state.from,
+                from: this.state.from,
             })
             .then(len => {
                 console.log('getPictures', len)
@@ -472,7 +473,7 @@ class Home extends React.Component {
                     simpleStoreContract.methods
                         .getPicture(i)
                         .call({
-                            from:this.state.from,
+                            from: this.state.from,
                         })
                         .then(pic => {
                             if (pic) {
@@ -504,7 +505,7 @@ class Home extends React.Component {
         simpleStoreContract.methods
             .getProductlength()
             .call({
-                from:this.state.from,
+                from: this.state.from,
             })
             .then(len => {
                 console.log('getProducts', len)
@@ -512,7 +513,7 @@ class Home extends React.Component {
                     simpleStoreContract.methods
                         .getProduct(i)
                         .call({
-                            from:this.state.from,
+                            from: this.state.from,
                         })
                         .then(goods => {
                             if (goods) {
@@ -606,9 +607,9 @@ class Home extends React.Component {
         return (
             <div className='stage'>
                 {/*<Header hasLogin={this.state.hasLogin} onClick={this.freeMonkey.bind(this)}/>*/}
-                <picture  >
-                    <source   srcset={bg} media={pc_media} />
-                    <img  className="bg" src={bg_m}/>
+                <picture>
+                    <source srcset={bg} media={pc_media}/>
+                    <img className="bg" src={bg_m}/>
                 </picture>
                 <PicWall data={this.state.picWall}/>
 
@@ -619,11 +620,11 @@ class Home extends React.Component {
 
                 {/*<Monkey/>*/}
 
-                <Quilt onCick={()=>console.log('this.state:',this.state)} />
+                <Quilt onCick={() => console.log('this.state:', this.state)}/>
 
                 {/*<picture>*/}
-                    {/*<source srcSet={frontbg} media={pc_media}/>*/}
-                    {/*<img className="bg_frontbg" src={frontbg_m}/>*/}
+                {/*<source srcSet={frontbg} media={pc_media}/>*/}
+                {/*<img className="bg_frontbg" src={frontbg_m}/>*/}
                 {/*</picture>*/}
                 <Market data={this.state.market} from={this.state.from} fruits={this.state.fruits}
                     // onClick={this.buyProduct.bind(this)}
@@ -636,11 +637,11 @@ class Home extends React.Component {
                 }}/>
                 <picture>
                     <source srcSet={vip_m} media={pc_media}/>
-                    <img className="vip_button ui_button" src={vip_m} onClick={()=>this.addBanana(2)}/>
+                    <img className="vip_button ui_button" src={vip_m} onClick={() => this.addBanana(2)}/>
                 </picture>
                 <picture>
                     <source srcSet={goHome_m} media={pc_media}/>
-                    <img className="goHome_button ui_button" src={goHome_m} oonClick={()=>this.backHome()}/>
+                    <img className="goHome_button ui_button" src={goHome_m} oonClick={() => this.backHome()}/>
                 </picture>
 
             </div>)
