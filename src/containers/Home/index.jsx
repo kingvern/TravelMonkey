@@ -4,6 +4,27 @@ import bg_m from '../../images/bg_m.jpg'
 import goHome_m from '../../images/goHome_m.png'
 import vip_m from '../../images/vip_m.png'
 
+import {
+    getMonkeycount,
+    checkFirst,
+    getBananacount,
+    getMonkey,
+
+    getowner2picture,
+    getPicturelength,
+    getPicture,
+
+    getowner2product,
+    getProductlength,
+    getProduct,
+
+    freeMonkey,
+    addBanana,
+    getBananaFromTree,
+    checkWalkout,
+    backHome
+} from "../../contracts/chain";
+
 import frontbg from '../../images/frontbg.png'
 import frontbg_m from '../../images/frontbg_m.png'
 
@@ -23,6 +44,7 @@ import Bag from '../../components/Bag.jsx'
 import Wallet from '../../components/Wallet.jsx'
 import Quilt from '../../components/Quilt.jsx'
 import PC from '../../components/PC.jsx'
+import Vip from '../../components/Vip.jsx'
 
 import {connect} from 'react-redux';
 
@@ -37,7 +59,6 @@ import axios from 'axios'
 
 const nervos = require("../../nervos");
 
-
 const {
     apiAddress, pc_media
 } = require('../../config')
@@ -51,206 +72,120 @@ const mobile_media = "(max-width:30em)"
 
 
 class Home extends React.Component {
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            from: '',
-            hasLogin: false, //有无猴
-            monkey: {}, //猴子状态
-            fruits: 0, //钱
-            treeFruits: 0, //树上钱
-            bag: [], //背包
-            picWall: [], //照片墙
-            market: [], //商店
-            Screen: PC, //电脑图片
-            status: [1, 0, 1], //旅行状态
-
-            pics: {},
-            marketData: [], //商店数据
-            picArray: [], //照片墙图片序号
-            picArrayy: [], //照片墙图片序号
-            monkeyClass: false,
-            i: 0
-        }
-
+    state = {
+        picWall: [], //照片墙
     }
 
     componentDidMount() {
-        console.log('window', window)
-        // setTimeout(
-        // ()=>window.nervos.appchain.getAccounts().then(
-        // ()=>window.neuron.getAccount().then(
-        //     account=>{
-        //         console.log('account',account)
-        this.setState({from: window.neuron.getAccount()})
-        // this.setState({from: ''})
-        //其实没用
-        this.getMonkeycount()
-        //开始
-        this.checkLoginStatus();
-        this.getProducts();
-        //     }
-        // ), 5000
-        // )
+
+        //只需加载一次的数据
+        this._getMonkeycount()
+        this._getMarket();
+        //开始判断
+        this._checkLoginStatus();
+    }
+
+
+    _loadData() {
+        setInterval(() => this._refreshStatus(), 5000)
+
+        if (this.props.monkey.state === true) {
+            let timeToGo = Math.floor(Math.random() * 10 + 10) * 1000;
+            setTimeout(() => {
+                this._checkWalkout()
+            }, timeToGo)
+        } else if (this.props.monkey.state === false) {
+            let timeToBack = Math.floor(Math.random() * 10 + 10) * 1000;
+            setTimeout(() => {
+                this._backHome()
+            }, timeToBack)
+        }
 
 
     }
 
+    _refreshStatus() {
+        this._getTree();
+        this._getMonkey();
 
-    loadData() {
-        this.refreshStatus()
-
-        setTimeout(() => {
-            this.checkWalkout()
-            this.storyHappen()
-            this.timer = setInterval(() => this.refreshTravleStatus(), 5000)
-        }, 10000)
-
+        this._getBag();
+        this._getPicWall();
     }
 
-    refreshStatus() {
-        this.getowner2product();
-        this.getowner2picture();
-        this.getTree();
-        this.getMonkey();
+
+    _checkWalkout() {
+        alert('主人我想出去玩了，给我点旅费吧')
+        checkWalkout()
+            .then(_ => {
+                    let timeToBack = Math.floor(Math.random() * 10 + 10) * 1000;
+                    setTimeout(() => {
+                        this._backHome()
+                    }, timeToBack)
+                    this._getPicWall()
+                }
+            )
+            .catch(err => alert('_checkWalkout' + err));
     }
 
-    // buyProduct(i) {
-    //     nervos.appchain
-    //         .getBlockNumber()
-    //         .then(current => {
-    //             const tx = {
-    //                 ...transaction,
-    //                 validUntilBlock: +current + 88,
-    //             }
-    //             console.log("buyProduct---res")
-    //             return simpleStoreContract.methods.buyProduct(i).send(tx)
-    //         })
-    //         .then(res => {
-    //
-    //             console.log("res", res)
-    //             if (res.hash) {
-    //                 return nervos.listeners.listenToTransactionReceipt(res.hash)
-    //             } else {
-    //                 alert('No Transaction Hash Received')
-    //             }
-    //         })
+    _backHome() {
+        alert('主人我想回来了，给我点旅费吧')
+        backHome()
+            .then(_ => {
+                let timeToGo = Math.floor(Math.random() * 10 + 10) * 1000;
+                setTimeout(() => {
+                    this._checkWalkout()
+                }, timeToGo)
+            })
+            .catch(err => alert('backHome' + err));
+    }
+
+    // _storyHappen() {
+    //     axios.post(apiAddress + '/bitrun/api/v1/story_happen', {
+    //         "address": window.neuron.getAccount(),
+    //         "randombackground": this.props.status[0],
+    //         "randomanimals": this.props.status[1],
+    //         "state": this.props.status[2],
+    //         "timestamp": (60 + Math.round(new Date().getTime() / 1000)).toString()
+    //     }).then(res => console.log('story_happen', res))
     // }
 
-    getBananaFromTree() { //收割香蕉
-        nervos.appchain
-            .getBlockNumber()
-            .then(current => {
-                const tx = {
-                    ...transaction,
-                    from: this.state.from,
-                    validUntilBlock: +current + 88,
-                }
-                console.log("getBananaFromTree---res")
-                return simpleStoreContract.methods.getBananaFromTree().send(tx)
-            })
-            .then(res => {
-                console.log("getBananaFromTree res", res)
-                this.getTree()
-                this.getMonkey()
-                if (res.hash) {
-                    alert('收获到了' + res + '果实，交易hash为' + res.hash)
-                    return nervos.listeners.listenToTransactionReceipt(res.hash)
-                } else {
-
-                    alert('交易失败！')
-                    alert('No Transaction Hash Received')
-                }
-            })
-    }
-
-    checkWalkout() {
-        console.log('checkWalkout', this)
-
-        console.log('checkWalkout state', this.state)
-        nervos.appchain
-            .getBlockNumber()
-            .then(current => {
-                const tx = {
-                    ...transaction,
-                    from: this.state.from,
-                    validUntilBlock: +current + 88,
-                }
-                console.log("checkWalkout---res")
-                return simpleStoreContract.methods.checkWalkout().send(tx)
-            })
-            .then(res => {
-                console.log("checkWalkout res", res)
-                this.getowner2picture()
-                if (res.hash) {
-                    return nervos.listeners.listenToTransactionReceipt(res.hash)
-                } else {
-                    alert('No Transaction Hash Received')
-                }
-            })
-    }
-
-    storyHappen() {
-        axios.post(apiAddress + '/bitrun/api/v1/story_happen', {
-            "address": this.state.from,
-            "randombackground": this.state.status[0],
-            "randomanimals": this.state.status[1],
-            "state": this.state.status[2],
-            "timestamp": (60 + Math.round(new Date().getTime() / 1000)).toString()
-        }).then(res => console.log('story_happen', res))
-    }
-
-    getTree() {
-        simpleStoreContract.methods
-            .getBananacount()
-            .call({
-                from: this.state.from,
-            })
+    _getTree() {
+        getBananacount()
             .then(treeFruits => {
-                this.setState({treeFruits: treeFruits})
-                console.log('getTree res', treeFruits)
+                this.props.setTreeFruits(treeFruits)
             })
-            .catch(console.error)
-    }
-
-
-    refreshTravleStatus() {
-
-        axios.get(apiAddress + '/bitrun/api/v1/get_monkey_status/' + this.state.from)
-            .then((res) => {
-                console.log("get_monkey_status", res);
-                if (res.data.status != 2) {
-                    this.setState({
-                        picWall: [...this.state.picWall, res.data.pic_url],
-                        where: res.data.status
-                    })
-                } else {
-                    this.setState({
-                        picWall: [...this.state.picWall, res.data.pic_url],
-                        where: res.data.status
-                    })
-                    clearInterval(this.timer)
-                }
-            })
+            .catch(e => alert(e))
 
     }
 
-    delTimer() {
-        clearInterval(this.timer)
-    }
+    // _refreshTravleStatus() {
+    //     axios.get(apiAddress + '/bitrun/api/v1/get_monkey_status/' + window.neuron.getAccount())
+    //         .then((res) => {
+    //             console.log("get_monkey_status", res);
+    //             // this._getPicWall()
+    //             if (res.data.status != 2) {
+    //                 this.setState({
+    //                     picWall: [...this.state.picWall, res.data.pic_url],
+    //                     where: res.data.status
+    //                 })
+    //             } else {
+    //                 this.setState({
+    //                     picWall: [...this.state.picWall, res.data.pic_url],
+    //                     where: res.data.status
+    //                 })
+    //                 clearInterval(this.timer)
+    //             }
+    //         })
+    //
+    // }
 
-
-    getMonkeycount() {
-        simpleStoreContract.methods
-            .getMonkeycount()
-            .call({
-                from: this.state.from,
+    _getMonkeycount() {
+        getMonkeycount()
+            .then(n => {
+                this.props.setMonkeyNum(n)
+                alert('_getMonkeycount ' + n)
             })
-            .then(res => {
-                console.log('getMonkeycount res', res)
-            })
-            .catch(console.error)
+            .catch(err => alert(err));
     }
 
 
@@ -267,341 +202,186 @@ class Home extends React.Component {
     }
 
 
-    checkLoginStatus() {
-        simpleStoreContract.methods
-            .checkFirst()
-            .call({
-                from: this.state.from,
-            })
+    _checkLoginStatus() {
+        checkFirst()
             .then(status => {
-                this.setState({hasLogin: status})
-                console.log("statusOnChain", status)
-                if (status) {
-                    this.freeMonkey()
+                this.props.setHasMonkey(status)
+                if (!status) {
                     alert('看你没猴子，免费送你一个，收好了！')
+                    this._freeMonkey()
+                    getMonkey()
+                        .then((arr) => {
+                                let monkey = {
+                                    key: arr[0],
+                                    gene: arr[1],
+                                    mood: arr[2],
+                                    banana: arr[3],
+                                    state: arr[4],
+                                    owner: arr[5]
+                                }
+                                this.props.setMonkey(monkey)
+                                this._loadData()
+                                // alert('monkey' + JSON.stringify(monkey))
+                                //key gene mood banana state owner
+                            }
+                        )
+                        .catch(e => alert(e))
                 }
                 else {
-                    this.loadData()
-
+                    getMonkey()
+                        .then((arr) => {
+                                let monkey = {
+                                    key: arr[0],
+                                    gene: arr[1],
+                                    mood: arr[2],
+                                    banana: arr[3],
+                                    state: arr[4],
+                                    owner: arr[5]
+                                }
+                                this.props.setMonkey(monkey)
+                                this._loadData()
+                                // alert('monkey' + JSON.stringify(monkey))
+                                //key gene mood banana state owner
+                            }
+                        )
+                        .catch(e => alert(e))
                 }
             })
-            .catch(console.error)
+            .catch(e => alert(e))
     }
 
 
-    freeMonkey() {
-        nervos.appchain
-            .getBlockNumber()
-            .then(current => {
-                const tx = {
-                    ...transaction,
-                    from: this.state.from,
-                    validUntilBlock: +current + 88,
-                }
-                console.log("freeMonkey---res")
-                return simpleStoreContract.methods.freeMonkey().send(tx)
-            })
-            .then(res => {
-                console.log("res", res)
-                this.getMonkey()
-                this.refreshStatus()
-                if (res.hash) {
-                    return nervos.listeners.listenToTransactionReceipt(res.hash)
-                } else {
-                    alert('No Transaction Hash Received')
-                }
-            })
-    }
-
-    addBanana(n) {
-        nervos.appchain
-            .getBlockNumber()
-            .then(current => {
-                let m = n + 1
-                const tx = {
-                    ...transaction,
-                    value: '0x0' + m,
-                    from: this.state.from,
-                    validUntilBlock: +current + 88,
-                }
-                console.log("freeMonkey---res")
-                return simpleStoreContract.methods.addBanana(n).send(tx)
-            })
-            .then(res => {
-                console.log("res", res)
-                this.getMonkey()
-                this.refreshStatus()
-                if (res.hash) {
-                    return nervos.listeners.listenToTransactionReceipt(res.hash)
-                } else {
-                    alert('No Transaction Hash Received')
-                }
-            })
-    }
-
-    backHome() {
-        nervos.appchain
-            .getBlockNumber()
-            .then(current => {
-                const tx = {
-                    ...transaction,
-                    from: this.state.from,
-                    validUntilBlock: +current + 88,
-                }
-                console.log("backHome---res")
-                return simpleStoreContract.methods.backHome().send(tx)
-            })
-            .then(res => {
-                console.log("backHome res", res)
-                this.getMonkey()
-                this.refreshStatus()
-                if (res.hash) {
-                    console.log("backHome success")
-                    return nervos.listeners.listenToTransactionReceipt(res.hash)
-                } else {
-                    alert('No Transaction Hash Received')
-                }
-            })
-    }
-
-    getMonkey() {
-        simpleStoreContract.methods
-            .getMonkey()
-            .call({
-                from: this.state.from,
-            })
+    _getMonkey() {
+        getMonkey()
             .then((arr) => {
-                    console.log("getMonkey success", arr)
-                    this.setState({
-                        fruits: arr[3],
-                        // where: arr[4]
-                    })
+                    let monkey = {
+                        key: arr[0],
+                        gene: arr[1],
+                        mood: arr[2],
+                        banana: arr[3],
+                        state: arr[4],
+                        owner: arr[5]
+                    }
+                    this.props.setMonkey(monkey)
+                    // alert('monkey' + JSON.stringify(monkey))
                     //key gene mood banana state owner
                 }
             )
-            .catch(console.error)
+            .catch(e => alert(e))
     }
 
-
-    getowner2picture() {
-        simpleStoreContract.methods
-            .getowner2picture()
-            .call({
-                from: this.state.from,
-            })
-            .then((indexs) => {
-
-                    console.log('getowner2picture', indexs)
-                    indexs.map(
-                        idx => {
-                            simpleStoreContract.methods
-                                .getPicture(idx)
-                                .call({
-                                    from: this.state.from,
-                                })
-                                .then(pic => {
-                                    // console.log("getPic", pic)
-                                    if (pic) {
-                                        this.setState({status: pic})
-
-                                        var picString = pic[0] + '-' + pic[1] + '-' + pic[2]
-                                        var picArray = this.state.picArray;
-                                        picArray.push(picString)
-                                        picArray = [...new Set(picArray)];
-                                        this.setState({picArray})
-                                    }
-                                    // return Promise.all(times.map(time => simpleStoreContract.methods.get(time).call({ from:this.state.from })))
-                                })
+    _getBag() {
+        getowner2product()
+            .then(indexs => {
+                Promise.all(indexs.map(idx =>
+                    getProduct(idx))).then(goodses => {
+                    let bag = []
+                    let bag_uniq = []
+                    goodses.map(goods => {
+                        let goodsTyped = {
+                            key: goods[0],
+                            name: goods[1],
+                            price: goods[2],
+                            effect: goods[3]
                         }
-                    )
-
-                    console.log("picArray", this.state.picArray)
-
-                }
-            )
-            .catch(console.error)
-    }
-
-    getowner2product() {
-        simpleStoreContract.methods
-            .getowner2product()
-            .call({
-                from: this.state.from,
-            })
-            .then((indexs) => {
-                    console.log('getowner2product', indexs)
-                    var bag = [];
-                    indexs.map(
-                        idx => {
-                            simpleStoreContract.methods
-                                .getProduct(idx)
-                                .call({
-                                    from: this.state.from,
-                                })
-                                .then(goods => {
-                                    // console.log("getPic", pic)
-                                    if (goods) {
-                                        var goodsTyped = {
-                                            key: goods[0],
-                                            name: goods[1],
-                                            price: goods[2],
-                                            effect: goods[3]
-                                        }
-                                        bag.push(goodsTyped)
-                                    }
-                                    // return Promise.all(times.map(time => simpleStoreContract.methods.get(time).call({ from:this.state.from })))
-                                })
+                        // let index = bag.indexOf(goodsTyped)
+                        let index_uniq = bag_uniq.indexOf(goodsTyped.key)
+                        // alert('index_uniq '+index_uniq)
+                        // alert()
+                        if (index_uniq == -1) {
+                            bag_uniq.push(goodsTyped.key)
+                            goodsTyped.count = 1
+                            bag.push(goodsTyped)
+                        } else {
+                            bag[index_uniq].count++
                         }
-                    )
-
-                    this.setState({bag})
-                    console.log("bag", this.state.bag)
-                }
-            )
-            .catch(console.error)
+                    })
+                    this.props.setBag(bag)
+                    // alert('bag_uniq' + JSON.stringify(bag_uniq))
+                    // alert('bag' + JSON.stringify(bag))
+                })
+            })
     }
 
-    getPictures() {
-        simpleStoreContract.methods
-            .getPicturelength()
-            .call({
-                from: this.state.from,
-            })
+    _getMarket() {
+        getProductlength()
             .then(len => {
-                console.log('getPictures', len)
+                let marketIdxs = []
                 for (let i = 1; i < len; i++) {
-                    simpleStoreContract.methods
-                        .getPicture(i)
-                        .call({
-                            from: this.state.from,
-                        })
-                        .then(pic => {
-                            if (pic) {
-                                var picTyped = {
-                                    key: pic[0],
-                                    bgId: pic[1],
-                                    animalId: pic[2],
-                                    monkeyStatus: pic[3]
-                                }
-                                var pics = this.state.pics
-
-                                pics.push(picTyped)
-                                this.setState({pics})
-                            }
-                            // return Promise.all(times.map(time => simpleStoreContract.methods.get(time).call({ from:this.state.from })))
-                        })
-                        // .then(texts => {
-                        //     this.setState({ texts })
-                        // })
-                        .catch(console.error)
+                    marketIdxs.push(i)
                 }
+                Promise.all(marketIdxs.map(idx =>
+                    getProduct(idx))).then(goodses => {
+                    let market = []
+                    goodses.map(goods => {
+                        let goodsTyped = {
+                            key: goods[0],
+                            name: goods[1],
+                            price: goods[2],
+                            effect: goods[3]
+                        }
+                        market.push(goodsTyped)
+                    })
+                    this.props.setMarket(market)
+                    // alert('market' + JSON.stringify(market))
+                })
 
-                console.log('getPics', this.state.pics)
-                console.log("picWall:", this.state.market)
             })
     }
 
-    getProducts() {
-        simpleStoreContract.methods
-            .getProductlength()
-            .call({
-                from: this.state.from,
-            })
-            .then(len => {
-                console.log('getProducts', len)
-                for (let i = 1; i < len; i++) {
-                    simpleStoreContract.methods
-                        .getProduct(i)
-                        .call({
-                            from: this.state.from,
+
+    _getPicWall() {
+        getowner2picture()
+            .then(indexs => {
+                Promise.all(indexs.map(idx =>
+                    getPicture(idx))).then(pics => {
+                    let picWall = []
+                    pics.map(pic => {
+                        let picString = pic[1] + '-' + pic[2] + '-' + pic[3]
+                        picWall.push(picString)
+                    })
+
+                    // alert('picWallstr' + picWall.join(","))
+                    axios.post(apiAddress + '/bitrun/api/v1/get_images', {"images": picWall.join(",")})
+                        .then((res) => {
+                            console.log(res);
+                            picWall = res.data
+                            this.props.setPicWall(picWall)
+                            // alert('picWall' + JSON.stringify(picWall))
                         })
-                        .then(goods => {
-                            if (goods) {
-                                var goodsTyped = {
-                                    key: goods[0],
-                                    name: goods[1],
-                                    price: goods[2],
-                                    effect: goods[3]
-                                }
-                                var market = this.state.market
-                                market.push(goodsTyped)
-                                this.setState({market})
-                            }
-                            // return Promise.all(times.map(time => simpleStoreContract.methods.get(time).call({ from:this.state.from })))
-                        })
-                        .catch(console.error)
-                }
-                console.log("market:", this.state.market)
+
+                })
             })
     }
 
-    // walkOut() {
-    //     nervos.appchain
-    //         .getBlockNumber()
-    //         .then(current => {
-    //             const tx = {
-    //                 ...transaction,
-    //                 validUntilBlock: +current + 88,
-    //             }
-    //             console.log("walkOut---res")
-    //             return simpleStoreContract.methods.walkOut().send(tx)
-    //         })
-    //         .then(() => {
-    //             simpleStoreContract.methods
-    //                 .getPictureLength()
-    //                 .call({
-    //                     from:this.state.from,
-    //                 })
-    //                 .then(picLength => {
-    //
-    //                     console.log("picLength---res", picLength)
-    //                     simpleStoreContract.methods
-    //                         .getPicture(picLength - 1)
-    //                         .call({
-    //                             from:this.state.from,
-    //                         })
-    //                         .then(picArr => {
-    //                             console.log("picArr", picArr)
-    //
-    //
-    //                         })
-    //                 })
-    //         })
-    //     var monkey = this.state.monkey
-    //     monkey[3] = 1
-    //     this.setState({monkey: monkey})
-    // }
+    _freeMonkey() {
+        freeMonkey().then(
+            this._getMonkey()
+        )
+    }
 
-    // finalPicture() {
-    //     nervos.appchain
-    //         .getBlockNumber()
-    //         .then(current => {
-    //             const tx = {
-    //                 ...transaction,
-    //                 validUntilBlock: +current + 88,
-    //             }
-    //             console.log("comeHome---res")
-    //             return simpleStoreContract.methods.finalPicture().send(tx)
-    //         })
-    //         .then((pic) => {
-    //             console.log("final pic", pic)
-    //             var picString = '1-1-2'
-    //             var picArray = this.state.picArray;
-    //             picArray.push(picString)
-    //             this.setState({picArray})
-    //             console.log(this.state.picArray)
-    //         })
-    // }
+    _getBananaFromTree() {
+        getBananaFromTree()
+            .then(_ => {
+                this._getTree()
+                this._getMonkey()
+            })
+            .catch(err => alert('getBananaFromTree' + err));
+    }
 
-    // reapFruits() {
-    //     var num = 5;
-    //     var fruits = this.state.fruits + num;
-    //     this.setState({
-    //         fruits: fruits,
-    //         treeFruits: 0
-    //     })
-    //     console.log(this.state.treeFruits)
-    // }
+
+    _refreshBag() {
+        let oldData = this.props.bag
+        let bagInterval = setInterval(
+            () => {
+                if (this.props.bag === oldData) {
+                    this._getBag()
+                } else {
+                    clearInterval(bagInterval)
+                }
+            }, 3000
+        )
+    }
 
     render() {
         return (
@@ -611,37 +391,29 @@ class Home extends React.Component {
                     <source srcset={bg} media={pc_media}/>
                     <img className="bg" src={bg_m}/>
                 </picture>
-                <PicWall data={this.state.picWall}/>
+                <PicWall data={this.props.picWall}/>
 
-                <Tree data={this.state.treeFruits} onClick={this.getBananaFromTree.bind(this)}/>
-                <PC data={this.state.Screen}/>
+                <Tree onClick={() => this._getBananaFromTree()}/>
+                <PC data={this.props.Screen}/>
                 <Bed/>
-                <Monkey data={this.state.monkeyClass} where={this.state.where}/>
-
-                {/*<Monkey/>*/}
-
-                <Quilt onCick={() => console.log('this.state:', this.state)}/>
+                <Monkey data={this.props.monkeyClass} where={this.props.where}/>
+                <Quilt/>
 
                 {/*<picture>*/}
                 {/*<source srcSet={frontbg} media={pc_media}/>*/}
                 {/*<img className="bg_frontbg" src={frontbg_m}/>*/}
                 {/*</picture>*/}
-                <Market data={this.state.market} from={this.state.from} fruits={this.state.fruits}
-                    // onClick={this.buyProduct.bind(this)}
-                />
-                <Bag bag={this.state.bag}/>
-                <Wallet fruits={this.state.fruits} onClick={() => {
-                    var monkey = this.state.monkey
-                    monkey[3] = 2
-                    this.setState({monkey: monkey})
-                }}/>
-                <picture>
-                    <source srcSet={vip_m} media={pc_media}/>
-                    <img className="vip_button ui_button" src={vip_m} onClick={() => this.addBanana(2)}/>
-                </picture>
+                <Market/>
+                <Bag/>
+                <Wallet fruits={this.props.fruits}/>
+                {/*<picture>*/}
+                {/*<source srcSet={vip_m} media={pc_media}/>*/}
+                {/*<img className="vip_button ui_button" src={vip_m} onClick={() => this._addBanana(2)}/>*/}
+                {/*</picture>*/}
+                <Vip/>
                 <picture>
                     <source srcSet={goHome_m} media={pc_media}/>
-                    <img className="goHome_button ui_button" src={goHome_m} oonClick={() => this.backHome()}/>
+                    <img className="goHome_button ui_button" src={goHome_m} onClick={() => this._backHome()}/>
                 </picture>
 
             </div>)
@@ -651,41 +423,50 @@ class Home extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        initList(e) {
-            const action = {
-                type: 'init_list'
-            }
-            dispatch(action);
+        //
+        setMonkeyNum(n) {
+            dispatch({type: 'setMonkeyNum', data: n});
         },
-        handleChangeInput(e) {
-            const action = {
-                type: 'change_input_value',
-                value: e.target.value
-            }
-            dispatch(action);
+        setHasMonkey(b) {
+            dispatch({type: 'setHasMonkey', data: b});
+        },
+        setMonkey(b) {
+            dispatch({type: 'setMonkey', data: b});
         },
 
-        handleAddInput(e) {
-            const action = {
-                type: 'add_input_value'
-            }
-            dispatch(action);
+        setTreeFruits(treeFruits) {
+            dispatch({type: 'setTreeFruits', data: treeFruits});
         },
-        handleDelInput(idx) {
-            const action = {
-                type: 'del_input_value',
-                value: idx
-            }
-            dispatch(action);
-        }
+        //
+        setBag(bag) {
+            dispatch({type: 'setBag', data: bag});
+        },
+        setPicWall(picWall) {
+            dispatch({type: 'setPicWall', data: picWall});
+        },
+        setMarket(market) {
+            dispatch({type: 'setMarket', data: market});
+        },
+        //
+        addProduct(goodsTyped) {
+            dispatch({type: 'addProduct', data: goodsTyped});
+        },
+        clearPicWall() {
+            dispatch({type: 'clearPicWall'});
+        },
+        clearMarket() {
+            dispatch({type: 'clearMarket'});
+        },
+
+
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        hasLogin: state.hasLogin, //有无猴
+        hasMonkey: state.hasMonkey, //有无猴
         monkey: state.monkey, //猴子状态
-        fruits: state.fruits, //钱
+        fruits: state.monkey.banana, //钱
         treeFruits: state.treeFruits, //树上钱
         bag: state.bag, //背包
         picWall: state.picWall, //照片墙
@@ -694,10 +475,7 @@ const mapStateToProps = (state) => {
         Screen: state.Screen, //电脑图片
         picArray: state.picArray, //照片墙图片序号
         picArrayy: state.picArrayy, //照片墙图片序号
-        monkeyClass: state.monkeyClass,
-        where: state.where,
-        status: state.status,
-        i: state.i
+        status: state.status
     }
 }
 

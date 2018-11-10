@@ -1,7 +1,5 @@
 import React from 'react'
 
-
-import marketModalStyle from '../modalStyle'
 import market_bg from '../images/market-bg.png'
 import market_pricebar from '../images/market-priceban.png'
 import market from '../images/market.png'
@@ -17,6 +15,11 @@ import Modal from 'react-modal';
 import {simpleStoreContract, transaction} from '../simpleStore'
 import bag_m from "../images/bag_m.png";
 import bag from "../images/bag.png";
+import tree_noFruit from "../images/tree_nofruit.png";
+import tree_m from "../images/tree_m.png";
+import connect from "react-redux/es/connect/connect";
+
+import {buyProduct} from "../contracts/chain";
 
 const {
     pc_media
@@ -26,19 +29,30 @@ require('./style/market.css')
 
 const nervos = require("../nervos");
 
+const marketModalStyle = {
+    content: {
+        top: '50%',
+        left: '50%',
+        width: '100%',
+        height: '100%',
+        background: 'none',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)'
+    }
+};
+
 class Market extends React.Component {
     constructor() {
         super();
         this.state = {
-            times: [],
-            texts: [],
             modalIsOpen: false,
             goodsPics: [goods0, goods1, goods2, goods3, goods4],
-            goodsNames: ['2', '5', '1', '10', '3']
+            // goodsNames: ['2', '5', '1', '10', '3']
         }
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
-        this.submitMarket = this.submitMarket.bind(this);
     }
 
     openModal() {
@@ -49,52 +63,22 @@ class Market extends React.Component {
         this.setState({modalIsOpen: false});
     }
 
-    submitMarket() {
-        this.closeModal()
-    }
-
     componentDidMount() {
 
     }
 
-
-    buyProduct(i) {
-        console.log('buyProduct start')
-        console.log('from',this.props.from)
-        nervos.appchain
-            .getBlockNumber()
-            .then(current => {
-                const tx = {
-                    ...transaction,
-                    from: this.props.from,
-                    validUntilBlock: +current + 88,
-                }
-                console.log("buyProduct---res")
-                return simpleStoreContract.methods.buyProduct(i).send(tx)
-            })
-            .then(res => {
-                this.setState({
-                    fruits: this.state.fruits - 2,
-                    monkeyClass: true
-                })
-                console.log("res", res)
-                if (res.hash) {
-                    alert('购买商品'+ i +'成功！交易hash为'+ res.hash)
-                    return nervos.listeners.listenToTransactionReceipt(res.hash)
-                } else {
-
-                    alert('购买商品'+ i +'失败！')
-                    throw new Error('No Transaction Hash Received')
-                }
-            })
+    _buyProduct(i, value) {
+        buyProduct(i, value)
     }
 
-    Goods = (i,goodsPic,goodsName) => {
-        return (
-            <div key={i} className="goods-bg" onClick={()=>this.buyProduct(i)}>
-                <img src={goodsPic}/>
-                <span className="goods-price">{goodsName}</span>
 
+    Goods = (i, goodsPic, goods) => {
+        return (
+            <div key={i} className="goods-bg" onClick={() => this._buyProduct(i, goods.price)}>
+                <div className="goods-pic-box">
+                    <img src={goodsPic} className="goods-pic"/>
+                </div>
+                <span className="goods-price">{goods.price}</span>
             </div>
         )
     }
@@ -114,22 +98,14 @@ class Market extends React.Component {
                 >
                     <div className="market-bg">
                         <div className="goods-container">
-                            {this.state.goodsPics.map((goodsPic, idx) => (
-                                this.Goods(idx, goodsPic, this.state.goodsNames[idx])
-
+                            {this.props.market.map((goods, idx) => (
+                                this.Goods(idx, this.state.goodsPics[goods.key-1], goods)
                             ))}
                         </div>
                         <div className="market-frontbg"/>
-                        {/*<button onClick={this.submitMarket}>关闭</button>*/}
-                        {/*<img className="market-confirm" src={market_confirm} onClick={() => {*/}
-                            {/*this.props.onClick(2);*/}
-                            {/*this.setState({modalIsOpen: false});*/}
-                        {/*}*/}
-                        {/*}/>*/}
-                        {/*<img className="market-pocket" src={market_pocket}/>*/}
-                        {/*<span className="market-charge">{this.props.fruits}</span>*/}
 
-                        <span className="market-title">点击商品直接购买，点击弹窗外关闭弹窗</span>
+                        <span className="market-title">点击商品直接购买</span>
+                        <span className="market-close-btn" onClick={this.closeModal}>关闭</span>
                     </div>
                 </Modal>
             </React.Fragment>
@@ -137,4 +113,14 @@ class Market extends React.Component {
     }
 }
 
-export default Market
+const mapStateToProps = (state) => {
+    return {
+        market: state.market,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Market);

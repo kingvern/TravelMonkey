@@ -6,6 +6,7 @@ import monkeyNaked from '../images/bit.png'
 import './style/monkey.css'
 import tree_noFruit from "../images/tree_nofruit.png";
 import tree_m from "../images/tree_m.png";
+import connect from "react-redux/es/connect/connect";
 
 
 const {
@@ -31,17 +32,14 @@ class Monkey extends React.Component {
 
     componentDidMount() {
         setInterval(this.tick, 1000);
-        console.log("monkeyNaked", this.props.data)
     }
 
     render() {
-        if (this.props.where == 1) {
+        if (!this.props.monkey.state) {
             return (
                 <div className="bg_bit"></div>
             )
-        }
-
-        if (!this.props.data) {
+        } else if (this.props.bag.length === 0) {
             return (
                 <img className="bg_bit" src={monkeyNaked}/>
             )
@@ -56,5 +54,15 @@ class Monkey extends React.Component {
 
 }
 
+const mapStateToProps = (state) => {
+    return {
+        monkey: state.monkey, //猴子
+        bag: state.bag //背包
+    }
+}
 
-export default Monkey
+const mapDispatchToProps = (dispatch) => {
+    return
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Monkey);

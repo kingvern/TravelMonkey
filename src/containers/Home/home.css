@@ -76,29 +76,46 @@
 
     .market-bg {
         overflow: hidden;
-        position: fixed;
-        /*width: 100%;*/
-        height: 100%;
+        /* position: fixed; */
+        width: 100%;
+        /* height: 100%; */
         background: url("../../images/market-bg.png") no-repeat;
-        /*background-size: cover;*/
+        /* background-size: cover; */
     }
 
-    /*.name-bg {*/
-    /*overflow: hidden;*/
-    /*position: fixed;*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-    /*background: url("../../public/images/name-bg.png") no-repeat;*/
-    /*background-size: cover;*/
-    /*}*/
-    /*.wallet-bg {*/
-    /*overflow: hidden;*/
-    /*position: fixed;*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-    /*background: url("../../public/images/wallet-bg.png") no-repeat;*/
-    /*background-size: cover;*/
-    /*}*/
+    .goods-container {
+        flex-direction: row;
+        align-items: center;
+        align-self: center;
+        display: flex;
+        align-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .goods-bg {
+        flex-direction: column;
+        width: 30%;
+        height: 30%;
+        align-items: center;
+        align-self: center;
+        display: flex;
+        align-content: flex-start;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .goods-pic {
+        width: 100%;
+    }
+
+    .goods-name {
+
+    }
+
+    .goods-price {
+
+    }
+
     .bag-bg {
         overflow: hidden;
         position: fixed;
@@ -132,13 +149,133 @@
         width: 400px;
         height: 200px;
     }
+
+    .thing-bg {
+        flex-direction: column;
+        /*border: 1px solid black;*/
+        width: 400px;
+        height: 200px;
+        margin-bottom: 100px;
+        align-items: center;
+        align-self: center;
+        display: flex;
+        align-content: flex-start;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .thing-container {
+        margin-left: 350px;
+        margin-top: 200px;
+        flex-direction: row;
+        /*border: 1px solid black;*/
+        width: 1400px;
+        align-items: center;
+        align-self: center;
+        display: flex;
+        align-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .pic_wall_bg {
+        height: 60%;
+
+        align-items: center;
+        justify-content: center;
+        background: url("../../images/pic-wall-bg.png") no-repeat;
+        background-size: cover;
+    }
+
+    .pic_wall {
+        width: 60%;
+        height: 100%;
+        background: url("../../images/pic-wall-bg.png") no-repeat;
+        display: flex;
+        align-items: flex-start;
+        align-content: flex-start;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .pic_wall_icon {
+        position: absolute;
+        right: 60px;
+        top: 60px;
+    }
+
+    .pic_wall_button {
+        position: absolute;
+        left: 30%;
+        top: 20%;
+    }
+
+    .pic {
+        width: 400px;
+        height: 200px;
+    }
+
+    .pic-bg {
+        /*flex-direction: column;*/
+        /*border: 1px solid black;*/
+        width: 400px;
+        height: 200px;
+        margin: 20px;
+        /*margin-bottom: 100px;*/
+        align-items: center;
+        align-self: center;
+        display: flex;
+        align-content: flex-start;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .pic-container {
+        /*margin-left: 350px;*/
+        flex-direction: row;
+        /*border: 1px solid black;*/
+        align-items: center;
+        align-self: center;
+        display: flex;
+        align-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .pic-bg_l {
+        flex-direction: column;
+        /*border: 1px solid black;*/
+        width: 400px;
+        height: 200px;
+        margin-bottom: 100px;
+        align-items: center;
+        align-self: center;
+        display: flex;
+        align-content: flex-start;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .pic-container_l {
+        margin-left: 350px;
+        margin-top: 200px;
+        flex-direction: row;
+        /*border: 1px solid black;*/
+        width: 1400px;
+        align-items: center;
+        align-self: center;
+        display: flex;
+        align-content: flex-start;
+        flex-wrap: wrap;
+    }
+
 }
+
 @media only screen and (max-width: 30em) {
     /*手机端*/
-    .stage{
+    .stage {
         width: 100%;
     }
-    .ui_button{
+
+    .ui_button {
         width: 14.5%;
     }
 
@@ -146,149 +283,341 @@
         width: 100%;
     }
 
-    .pic_wall_bg_l{
+    .bag-button {
         position: absolute;
-        left: 21%;
-        top: 85%;
+        right: 3%;
+        top: 1%;
     }
 
-    .bg_bed{
+    .wallet-button {
+        position: absolute;
+        left: 4%;
+        top: 1%;
+        font-size: 1.6em;
+    }
+
+    .wallet-button-span {
+        position: absolute;
+        left: 4%;
+        top: 1%;
+        font-size: 1.6em;
+        padding: 2px 5px;
+    }
+
+
+    .market-button {
+        position: absolute;
+        top: 1%;
+        right: 19%;
+    }
+
+    .pic_wall_bg_l {
+        position: absolute;
+        left: 4%;
+        top: 151vw;
+    }
+
+    .vip_button {
+        position: absolute;
+        left: 21%;
+        top: 1%;
+    }
+
+    .goHome_button {
+        position: absolute;
+        right: 3%;
+        top: 151vw;
+    }
+
+    .bg_bed {
         position: absolute;
         left: 5%;
-        top: 42%;
+        top: 74.66676vw;
         width: 73%;
         pointer-events: none;
     }
 
-    .bg_tree{
+    .bg_tree {
         position: absolute;
-        top: 20%;
+        top: 35.5556vw;
         left: 15%;
         width: 80%;
     }
-    .bg_banana{
+
+    .bg_banana {
         position: absolute;
         /* right: 0; */
-        top: 50%;
+        top: 88.889vw;
         left: 50%;
         width: 20%;
     }
 
-    .bg_bit{
+    .bg_bit {
         position: absolute;
         left: 38%;
-        top: 60%;
+        top: 106.6668vw;
         width: 22%;
         pointer-events: none;
     }
 
-    .bg_frontbg{
+    .bg_frontbg {
         position: absolute;
         left: 0;
         bottom: 0;
         pointer-events: none;
     }
 
-    .bg_quilt{
+    .bg_quilt {
         position: absolute;
         width: 54%;
         left: 14%;
-        top: 72%;
+        top: 126vw;
     }
 
-    .bg_pc{
+    .bg_pc {
         position: absolute;
         left: 60%;
-        top: 65%;
+        top: 115.5557vw;
         width: 17%;
-    }
-
-    .bag-button{
-        position: absolute;
-        right: 3%;
-        top: 1%;
-    }
-
-    .wallet-button{
-        position: absolute;
-        left: 4%;
-        top: 1%;
-        font-size: 37px;
-    }
-
-    .market-button{
-        position: absolute;
-        right: 3%;
-        top: 85%;
     }
 
     .market-bg {
         overflow: hidden;
-        position: fixed;
-        /*width: 100%;*/
+        width: 100%;
         height: 100%;
-        background: url("../../images/market-bg.png") no-repeat;
-        /*background-size: cover;*/
+        background: url("../../images/market_bag_m.jpg") no-repeat;
+        background-size: cover;
     }
-    /*.name-bg {*/
-    /*overflow: hidden;*/
-    /*position: fixed;*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-    /*background: url("../../public/images/name-bg.png") no-repeat;*/
-    /*background-size: cover;*/
-    /*}*/
-    /*.wallet-bg {*/
-    /*overflow: hidden;*/
-    /*position: fixed;*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-    /*background: url("../../public/images/wallet-bg.png") no-repeat;*/
-    /*background-size: cover;*/
-    /*}*/
+
+    .goods-container {
+        flex-direction: row;
+        align-items: center;
+        align-self: center;
+        display: -ms-flexbox;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        margin: 91px 0;
+    }
+
+    .goods-bg {
+        flex-direction: column;
+        width: 46%;
+        padding: 8px 27px 6px 54px;
+        align-items: center;
+        align-self: center;
+        display: -ms-flexbox;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .goods-pic-box {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        /* align-self: center; */
+        height: 64px;
+    }
+
+    .goods-pic {
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    .goods-name {
+
+    }
+
+    .goods-price {
+
+    }
+
     .bag-bg {
         overflow: hidden;
-        position: fixed;
-        /*width: 100%;*/
+        width: 100%;
         height: 100%;
-        background: url("../../images/bag-bg.png") no-repeat;
-        /*background-size: cover;*/
+        background: url("../../images/market_bag_m.jpg") no-repeat;
+        background-size: cover;
     }
 
-    .pic_wall-bg{
+    .vip-bg {
+        background: url("../../images/vip_bg.png") no-repeat;
+        width: 100%;
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        background-size: contain;
+    }
+
+    .vip-btn {
+        display: block;
+        width: 73px;
+        margin: 14px;
+        height: 30px;
+    }
+
+    .vip-input {
+        margin-top: 23px;
+        height: 19px;
+        width: 100px;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .pic_wall-bg {
 
         overflow: hidden;
-        position: fixed;
+        /*position: fixed;*/
         /*width: 100%;*/
         height: 100%;
 
-        overflow:scroll;
+        overflow: scroll;
         /*background: url("../../images/pic-wall-bg.png") no-repeat;*/
         /*background-size: cover;*/
 
     }
-    .market-title{
+
+    .market-close-btn {
         position: absolute;
-        top:0;
-        left:400px;
-        font-size: 40px;
+        top: 130.5vw;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
-    .vip_button{
+
+    .market-title {
         position: absolute;
-        top: 85%;
-        right: 19%;
+        top: 60px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 22px;
+        color: #2b1203;
     }
-    .goHome_button{
+
+    .thing-bg {
+        flex-direction: column;
+        width: 48%;
+        padding: 19px 31px;
+        max-height: 8%;
+        align-items: center;
+        align-self: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .thing-container {
+        flex-direction: row;
+        align-items: center;
+        align-self: center;
+        display: flex;
+        align-content: flex-start;
+        flex-wrap: wrap;
+        margin: 62px 0;
+    }
+
+    .pc {
+        width: 100%;
+    }
+
+    .pic_wall_bg {
+        height: 60%;
+
+        align-items: center;
+        justify-content: center;
+        background: url("../../images/pic-wall-bg.png") no-repeat;
+        background-size: cover;
+    }
+
+    .pic_wall {
+        width: 60%;
+        height: 100%;
+        background: url("../../images/pic-wall-bg.png") no-repeat;
+        display: flex;
+        align-items: flex-start;
+        align-content: flex-start;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .pic_wall_icon {
         position: absolute;
-        top: 1%;
-        right: 19%;
+        right: 60px;
+        top: 60px;
     }
+
+    .pic_wall_button {
+        position: absolute;
+        left: 30%;
+        top: 20%;
+    }
+
+    .pic {
+        width: 100%;
+    }
+
+    .pic-bg {
+        /*flex-direction: column;*/
+        /*border: 1px solid black;*/
+        width: 100%;
+        height: 200px;
+        /*padding: 20px;*/
+        /*margin-bottom: 100px;*/
+        align-items: center;
+        align-self: center;
+        display: flex;
+        align-content: flex-start;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .pic-container {
+        /*margin-left: 350px;*/
+        flex-direction: row;
+        /*border: 1px solid black;*/
+        align-items: center;
+        align-self: center;
+        display: flex;
+        align-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .pic-bg_l {
+        flex-direction: column;
+        /*border: 1px solid black;*/
+        width: 400px;
+        height: 200px;
+        margin-bottom: 100px;
+        align-items: center;
+        align-self: center;
+        display: flex;
+        align-content: flex-start;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .pic-container_l {
+        margin-left: 350px;
+        margin-top: 200px;
+        flex-direction: row;
+        /*border: 1px solid black;*/
+        width: 1400px;
+        align-items: center;
+        align-self: center;
+        display: flex;
+        align-content: flex-start;
+        flex-wrap: wrap;
+    }
+
 }
-.text_button{
+
+.text_button {
     position: fixed;
     bottom: 0;
 }
-.text_button2{
+
+.text_button2 {
     position: fixed;
     bottom: 0;
     right: 0;

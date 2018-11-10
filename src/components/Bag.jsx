@@ -1,7 +1,6 @@
 import React from 'react'
 
 
-import bagModalStyle  from '../modalStyle'
 import bag from '../images/bag.png'
 import bag_m from '../images/bag_m.png'
 import goods0 from '../images/goods0.png'
@@ -12,6 +11,7 @@ import goods4 from '../images/goods4.png'
 import Modal from 'react-modal';
 import {simpleStoreContract} from '../simpleStore'
 import bg from "../images/bg.png";
+import connect from "react-redux/es/connect/connect";
 
 
 const {
@@ -20,35 +20,33 @@ const {
 
 require('./style/bag.css')
 
+const bagModalStyle = {
+    content: {
+        top: '50%',
+        left: '50%',
+        width: '100%',
+        height: '100%',
+        background: 'none',
+        right: 'auto',
+        bottom: 'auto',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)'
+    }
+};
 
-const Thing = ({thingPic}) => {
-    // console.log(thingPic)
-    return (
-        <div className="thing-bg">
-            <img src={thingPic} />
-        </div>
-    )
-}
 
 class Bag extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            times: [],
-            texts: [],
             modalIsOpen: false,
-            goodsPics:[goods0,goods1,goods2,goods3,goods4],
-
+            goodsPics: [goods0, goods1, goods2, goods3, goods4],
         }
         this.openModal = this.openModal.bind(this);
         this.closeModal = this.closeModal.bind(this);
-        this.submitBag = this.submitBag.bind(this);
     }
 
     openModal() {
-
-        console.log('bag',this.props)
-        console.log('bag',this.state)
         this.setState({modalIsOpen: true});
     }
 
@@ -56,33 +54,29 @@ class Bag extends React.Component {
         this.setState({modalIsOpen: false});
     }
 
-    submitBag(){
-        // const from = 'e3fba7efa7e9b68b18c31f42b41c2dff7dc69b0c'
-        //
-        // var times=[]
-        // for(let i = 0;i < 10; i++){
-        //     times.push(new Date())
-        // }
-        // console.log(times)
-        // Promise.all(times.map(time => simpleStoreContract.methods.get(time).call({ from })))
-        //     .then(texts => {
-        //         this.setState({ texts })
-        //         console.log(texts)
-        //     })
-        //     .catch(console.error)
-        this.closeModal()
-    }
 
     componentDidMount() {
 
+    }
+
+    Thing = (i, goodsPic, goods) => {
+        // console.log(thingPic)
+        return (
+            <div key={i} className="goods-bg">
+                <div className="goods-pic-box">
+                    <img src={goodsPic} className="goods-pic"/>
+                </div>
+                <span className="goods-price">{goods.price} X{goods.count}</span>
+            </div>
+        )
     }
 
     render() {
         return (
             <React.Fragment>
                 <picture>
-                    <source  srcset={bag} media={pc_media} />
-                    <img src={bag_m} className="bag-button ui_button" onClick={this.openModal} />
+                    <source srcset={bag} media={pc_media}/>
+                    <img src={bag_m} className="bag-button ui_button" onClick={this.openModal}/>
                 </picture>
 
                 <Modal
@@ -93,14 +87,12 @@ class Bag extends React.Component {
                 >
 
                     <div className="bag-bg">
-                        <div className="thing-container">
-                    {this.props.bag.map((goods, idx) => (
-                        <Thing
-                            key={idx}
-                            thingPic={this.state.goodsPics[goods.key-1] }/>
-                    ))}
+                        <div className="goods-container">
+                            {this.props.bag.map((goods, idx) => (
+                                this.Thing(idx, this.state.goodsPics[goods.key - 1], goods)
+                            ))}
                         </div>
-                    {/*<button onClick={this.submitBag}>close</button>*/}
+                        <span className="market-close-btn" onClick={this.closeModal}>关闭</span>
                     </div>
                 </Modal>
             </React.Fragment>
@@ -108,4 +100,14 @@ class Bag extends React.Component {
     }
 }
 
-export default Bag
+const mapStateToProps = (state) => {
+    return {
+        bag: state.bag,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Bag)

@@ -25,8 +25,6 @@ class Wallet extends React.Component {
     constructor() {
         super();
         this.state = {
-            times: [],
-            texts: [],
             modalIsOpen: false,
             newWallet: ""
         }
@@ -57,7 +55,7 @@ class Wallet extends React.Component {
                     <source srcSet={wallet} media={pc_media}/>
                     <img src={wallet_m} className="wallet-button ui_button" />
                 </picture>
-                <span className="wallet-button">{this.props.fruits}</span>
+                <span className="wallet-button-span">{this.props.fruits}</span>
             </div>
         )
     }
