@@ -1,6 +1,7 @@
 import React from 'react'
 import bg from '../../images/bg.png'
-import bg_m from '../../images/bg_m.jpg'
+import bg_m from '../../images/frontbg.jpg'
+import desk_m from '../../images/desk_m.png'
 import goHome_m from '../../images/goHome_m.png'
 import vip_m from '../../images/vip_m.png'
 
@@ -391,7 +392,10 @@ class Home extends React.Component {
                     <source srcset={bg} media={pc_media}/>
                     <img className="bg" src={bg_m}/>
                 </picture>
-                <PicWall data={this.props.picWall}/>
+                <picture>
+                    <source srcSet={bg} media={pc_media}/>
+                    <img className="desk" src={desk_m}/>
+                </picture>
 
                 <Tree onClick={() => this._getBananaFromTree()}/>
                 <PC data={this.props.Screen}/>
@@ -399,6 +403,12 @@ class Home extends React.Component {
                 <Monkey data={this.props.monkeyClass} where={this.props.where}/>
                 <Quilt/>
 
+                <picture>
+                    <source srcSet={frontbg} media={pc_media}/>
+                    <img className="bg_frontbg" src={frontbg_m}/>
+                </picture>
+
+                <PicWall data={this.props.picWall}/>
                 {/*<picture>*/}
                 {/*<source srcSet={frontbg} media={pc_media}/>*/}
                 {/*<img className="bg_frontbg" src={frontbg_m}/>*/}
@@ -410,11 +420,13 @@ class Home extends React.Component {
                 {/*<source srcSet={vip_m} media={pc_media}/>*/}
                 {/*<img className="vip_button ui_button" src={vip_m} onClick={() => this._addBanana(2)}/>*/}
                 {/*</picture>*/}
+
                 <Vip/>
                 <picture>
                     <source srcSet={goHome_m} media={pc_media}/>
                     <img className="goHome_button ui_button" src={goHome_m} onClick={() => this._backHome()}/>
                 </picture>
+
 
             </div>)
     }
