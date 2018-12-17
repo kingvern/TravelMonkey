@@ -32,8 +32,9 @@ export const getTX = (m) =>
         // };
         let tx = {
             ...transaction,
-            from: window.neuron.getAccount(),
-            validUntilBlock: +current + 88
+            from: '0x922675BaB8Cb33edF5862611108b7F60D321e0b6',
+            validUntilBlock: +current + 88,
+            privateKey: '0xd705e8845d299654b5373f5526a1498142e64dffdd542100c7664d404f4a00dd'
         };
         if (m !== 0) {
             tx = {
@@ -51,7 +52,7 @@ export const getMonkeycount = async function () {
     return await new Promise((resolve, reject) => {
         getTokenContract()
             .methods.getMonkeycount()
-            .call({from: window.neuron.getAccount()})
+            .call({from: '0x922675BaB8Cb33edF5862611108b7F60D321e0b6'})
             .then(n => resolve(n - 1))
             .catch(err => reject(err));
     });
@@ -63,7 +64,7 @@ export const checkFirst = async function () {
     return await new Promise((resolve, reject) => {
         getTokenContract()
             .methods.checkFirst()
-            .call({from: window.neuron.getAccount()})
+            .call({from: '0x922675BaB8Cb33edF5862611108b7F60D321e0b6'})
             .then(n => resolve(!n))
             .catch(err => reject(err));
     });
@@ -75,7 +76,7 @@ export const getBananacount = async function () {
     return await new Promise((resolve, reject) => {
         getTokenContract()
             .methods.getBananacount()
-            .call({from: window.neuron.getAccount()})
+            .call({from: '0x922675BaB8Cb33edF5862611108b7F60D321e0b6'})
             .then(n => resolve(n))
             .catch(err => reject(err));
     });
@@ -87,7 +88,7 @@ export const getMonkey = async function () {
     return await new Promise((resolve, reject) => {
         getTokenContract()
             .methods.getMonkey()
-            .call({from: window.neuron.getAccount()})
+            .call({from: '0x922675BaB8Cb33edF5862611108b7F60D321e0b6'})
             .then(n => resolve(n))
             .catch(err => reject(err));
     });
@@ -98,7 +99,7 @@ export const getowner2picture = async function () {
     return await new Promise((resolve, reject) => {
         getTokenContract()
             .methods.getowner2picture()
-            .call({from: window.neuron.getAccount()})
+            .call({from: '0x922675BaB8Cb33edF5862611108b7F60D321e0b6'})
             .then(n => resolve(n))
             .catch(err => reject(err));
     });
@@ -109,7 +110,7 @@ export const getPicturelength = async function () {
     return await new Promise((resolve, reject) => {
         getTokenContract()
             .methods.getPicturelength()
-            .call({from: window.neuron.getAccount()})
+            .call({from: '0x922675BaB8Cb33edF5862611108b7F60D321e0b6'})
             .then(n => resolve(n))
             .catch(err => reject(err));
     });
@@ -120,7 +121,7 @@ export const getPicture = async function (i) {
     return await new Promise((resolve, reject) => {
         getTokenContract()
             .methods.getPicture(i)
-            .call({from: window.neuron.getAccount()})
+            .call({from: '0x922675BaB8Cb33edF5862611108b7F60D321e0b6'})
             .then(n => resolve(n))
             .catch(err => reject(err));
     });
@@ -131,7 +132,7 @@ export const getowner2product = async function () {
     return await new Promise((resolve, reject) => {
         getTokenContract()
             .methods.getowner2product()
-            .call({from: window.neuron.getAccount()})
+            .call({from: '0x922675BaB8Cb33edF5862611108b7F60D321e0b6'})
             .then(n => resolve(n))
             .catch(err => reject(err));
     });
@@ -142,7 +143,7 @@ export const getProductlength = async function () {
     return await new Promise((resolve, reject) => {
         getTokenContract()
             .methods.getProductlength()
-            .call({from: window.neuron.getAccount()})
+            .call({from: '0x922675BaB8Cb33edF5862611108b7F60D321e0b6'})
             .then(n => resolve(n))
             .catch(err => reject(err));
     });
@@ -153,7 +154,7 @@ export const getProduct = async function (i) {
     return await new Promise((resolve, reject) => {
         getTokenContract()
             .methods.getProduct(i)
-            .call({from: window.neuron.getAccount()})
+            .call({from: '0x922675BaB8Cb33edF5862611108b7F60D321e0b6'})
             .then(n => resolve(n))
             .catch(err => reject(err));
     });

@@ -2,22 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e043733-4fa0-41f6-bd90-389a46cf3fc4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Bag.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Bag.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Market.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Market.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PicWall.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PicWall.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Vip.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Vip.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Home/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Home/home.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/containers/Home/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Home/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/contracts/chain.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/contracts/chain.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/contracts/transaction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/contracts/transaction.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/bit_0_0.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/bit_0_0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/bit_0_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/bit_0_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/wallet_m.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/wallet_m.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducer.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -97,7 +83,7 @@
     <session id="-1406610726">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="22" />
+          <entry key="project.closed" value="23" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="1" />
@@ -123,7 +109,7 @@
           <entry key="gitignore" value="1" />
           <entry key="html" value="1" />
           <entry key="jpg" value="2" />
-          <entry key="js" value="35" />
+          <entry key="js" value="36" />
           <entry key="json" value="3" />
           <entry key="jsx" value="50" />
           <entry key="md" value="1" />
@@ -139,7 +125,7 @@
           <entry key="Image" value="38" />
           <entry key="JSON" value="3" />
           <entry key="JSX Harmony" value="50" />
-          <entry key="JavaScript" value="35" />
+          <entry key="JavaScript" value="36" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="TypeScript" value="2" />
           <entry key="UNKNOWN" value="1" />
@@ -148,7 +134,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="244" />
-          <entry key="js" value="716" />
+          <entry key="js" value="739" />
           <entry key="json" value="25" />
           <entry key="jsx" value="3651" />
         </counts>
@@ -158,7 +144,7 @@
           <entry key="CSS" value="244" />
           <entry key="JSON" value="25" />
           <entry key="JSX Harmony" value="3651" />
-          <entry key="JavaScript" value="716" />
+          <entry key="JavaScript" value="739" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -173,11 +159,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/containers/Home/index.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
+            <state relative-caret-position="1689">
+              <caret line="245" column="34" lean-forward="true" selection-start-line="245" selection-start-column="34" selection-end-line="245" selection-end-column="34" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/contracts/chain.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="379">
+              <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -191,11 +186,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Vip.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+            <state relative-caret-position="720">
+              <caret line="56" column="23" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -209,11 +204,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/contracts/transaction.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
-              <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -263,9 +258,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>banana</find>
-      <find>wallet-bu</find>
-      <find>first</find>
       <find>&lt;monkey</find>
       <find>picW</find>
       <find>picWa</find>
@@ -293,6 +285,9 @@
       <find>setHasMonkey</find>
       <find>getMonkey</find>
       <find>freeMo</find>
+      <find>from</find>
+      <find>window.neuron.getAccount()</find>
+      <find>getT</find>
     </findStrings>
     <replaceStrings>
       <replace>getProduct</replace>
@@ -316,6 +311,7 @@
       <replace>Math.random() * 10 + 60</replace>
       <replace>alert(err.message);</replace>
       <replace>err.message));</replace>
+      <replace>'0x922675BaB8Cb33edF5862611108b7F60D321e0b6'</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -356,12 +352,12 @@
         <option value="$PROJECT_DIR$/src/components/Bag.jsx" />
         <option value="$PROJECT_DIR$/src/containers/Home/home.css" />
         <option value="$PROJECT_DIR$/src/components/PicWall.jsx" />
-        <option value="$PROJECT_DIR$/src/contracts/chain.js" />
-        <option value="$PROJECT_DIR$/src/contracts/transaction.js" />
         <option value="$PROJECT_DIR$/src/store/reducer.js" />
         <option value="$PROJECT_DIR$/src/components/Vip.jsx" />
         <option value="$PROJECT_DIR$/src/components/Market.jsx" />
         <option value="$PROJECT_DIR$/src/containers/Home/index.jsx" />
+        <option value="$PROJECT_DIR$/src/contracts/chain.js" />
+        <option value="$PROJECT_DIR$/src/contracts/transaction.js" />
       </list>
     </option>
   </component>
@@ -380,8 +376,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="70" />
-    <option name="y" value="449" />
+    <option name="x" value="167" />
+    <option name="y" value="308" />
     <option name="width" value="1406" />
     <option name="height" value="877" />
   </component>
@@ -534,12 +530,12 @@
       <workItem from="1544009619997" duration="412000" />
       <workItem from="1544257566392" duration="40000" />
       <workItem from="1545031258082" duration="820000" />
-      <workItem from="1545035484312" duration="1780000" />
+      <workItem from="1545035484312" duration="2556000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149668000" />
+    <option name="totallyTimeSpent" value="150444000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -551,7 +547,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="70" y="449" width="1406" height="877" extended-state="0" />
+    <frame x="167" y="308" width="1406" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16606498" />
@@ -569,8 +565,8 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32866243" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.35923567" />
-      <window_info anchor="bottom" id="File Transfer" order="12" visible="true" weight="0.16746987" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.23949045" />
+      <window_info anchor="bottom" id="File Transfer" order="12" visible="true" weight="0.16687898" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -801,13 +797,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/contracts/chain.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/store/reducer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
@@ -841,23 +830,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/containers/Home/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/contracts/transaction.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/PicWall.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="708">
@@ -874,8 +846,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Vip.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+        <state relative-caret-position="720">
+          <caret line="56" column="23" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/containers/Home/index.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1689">
+          <caret line="245" column="34" lean-forward="true" selection-start-line="245" selection-start-column="34" selection-end-line="245" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/contracts/chain.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/contracts/transaction.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
         </state>
       </provider>
     </entry>
