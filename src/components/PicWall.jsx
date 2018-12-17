@@ -122,6 +122,7 @@ class PicWall extends React.Component {
                     contentLabel="照片墙"
                 >
                     <div className="pic_wall-bg">
+                        <span>相册，点击相片退出</span>
                         <div className="pic-container" onClick={this.closeModal}>
                             {this.props.picWall.map((pic, idx) => (
                                 <Pic

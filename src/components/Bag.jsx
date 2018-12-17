@@ -22,6 +22,7 @@ require('./style/bag.css')
 
 const bagModalStyle = {
     content: {
+        padding: "4vw",
         top: '50%',
         left: '50%',
         width: '100%',

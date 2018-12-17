@@ -3,8 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="7e043733-4fa0-41f6-bd90-389a46cf3fc4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Bag.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Bag.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Market.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Market.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PicWall.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PicWall.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Vip.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Vip.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/Home/home.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Home/home.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/containers/Home/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/containers/Home/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/contracts/chain.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/contracts/chain.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/contracts/transaction.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/contracts/transaction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/bit_0_0.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/bit_0_0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/bit_0_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/bit_0_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/wallet_m.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/images/wallet_m.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducer.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -84,223 +97,162 @@
     <session id="-1406610726">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="22" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.16" value="1" />
+          <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.32" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.open.time.8" value="2" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="9" />
+          <entry key="project.open.time.6" value="2" />
+          <entry key="project.open.time.7" value="2" />
+          <entry key="project.open.time.8" value="4" />
+          <entry key="project.open.time.9" value="3" />
+          <entry key="project.opened" value="23" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="Travel_Monkey" value="1" />
-          <entry key="css" value="10" />
+          <entry key="css" value="12" />
           <entry key="gitignore" value="1" />
           <entry key="html" value="1" />
           <entry key="jpg" value="2" />
-          <entry key="js" value="24" />
-          <entry key="jsx" value="34" />
-          <entry key="png" value="25" />
+          <entry key="js" value="35" />
+          <entry key="json" value="3" />
+          <entry key="jsx" value="50" />
+          <entry key="md" value="1" />
+          <entry key="png" value="36" />
           <entry key="sol" value="1" />
-          <entry key="ts" value="1" />
+          <entry key="ts" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="10" />
+          <entry key="CSS" value="12" />
           <entry key="HTML" value="1" />
-          <entry key="Image" value="27" />
-          <entry key="JSX Harmony" value="34" />
-          <entry key="JavaScript" value="24" />
-          <entry key="PLAIN_TEXT" value="2" />
-          <entry key="TypeScript" value="1" />
+          <entry key="Image" value="38" />
+          <entry key="JSON" value="3" />
+          <entry key="JSX Harmony" value="50" />
+          <entry key="JavaScript" value="35" />
+          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="TypeScript" value="2" />
           <entry key="UNKNOWN" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="221" />
-          <entry key="js" value="604" />
-          <entry key="jsx" value="3075" />
+          <entry key="css" value="244" />
+          <entry key="js" value="716" />
+          <entry key="json" value="25" />
+          <entry key="jsx" value="3651" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="221" />
-          <entry key="JSX Harmony" value="3075" />
-          <entry key="JavaScript" value="604" />
+          <entry key="CSS" value="244" />
+          <entry key="JSON" value="25" />
+          <entry key="JSX Harmony" value="3651" />
+          <entry key="JavaScript" value="716" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="TypeScriptServerServiceImpl" value="1" />
+          <entry key="TypeScriptServerServiceImpl" value="4" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.69896907">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/containers/Home/index.jsx">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="335">
-                  <caret line="410" column="52" selection-start-line="410" selection-start-column="52" selection-end-line="410" selection-end-column="52" />
-                  <folding>
-                    <element signature="e#0#25#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/images/frontbg_m.png">
-              <provider selected="true" editor-type-id="images" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/images/bg_m.jpg">
-              <provider selected="true" editor-type-id="images" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/images/bg.png">
-              <provider selected="true" editor-type-id="images" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/components/Bag.jsx">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="15">
-                  <caret line="72" selection-start-line="72" selection-end-line="72" />
-                  <folding>
-                    <element signature="e#0#25#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/components/PC.jsx">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/components/PicWall.jsx">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1440">
-                  <caret line="111" column="17" selection-start-line="111" selection-start-column="17" selection-end-line="111" selection-end-column="17" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/containers/Home/home.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="6780">
-                  <caret line="464" selection-start-line="464" selection-end-line="464" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/components/style/pic_wall.css">
-              <provider selected="true" editor-type-id="text-editor" />
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/components/Market.jsx">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1035">
-                  <caret line="90" column="56" selection-start-line="90" selection-start-column="56" selection-end-line="90" selection-end-column="56" />
-                  <folding>
-                    <element signature="e#0#25#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/images/goods4.png">
-              <provider selected="true" editor-type-id="images" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/images/goods3.png">
-              <provider selected="true" editor-type-id="images" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/images/goods2.png">
-              <provider selected="true" editor-type-id="images" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/images/goods1.png">
-              <provider selected="true" editor-type-id="images" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/images/goods0.png">
-              <provider selected="true" editor-type-id="images" />
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/containers/Home/home.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="251">
-                  <caret line="374" column="15" selection-start-line="374" selection-start-column="5" selection-end-line="374" selection-end-column="15" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/components/Vip.jsx">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="870">
-                  <caret line="66" column="42" selection-start-line="66" selection-start-column="42" selection-end-line="66" selection-end-column="42" />
-                  <folding>
-                    <element signature="e#0#25#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/store/reducer.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="90">
-                  <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/contracts/CoreContract.sol">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="315">
-                  <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/containers/Home/index.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="118">
+              <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="64" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/Vip.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Market.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="708">
+              <caret line="78" column="9" selection-start-line="78" selection-start-column="9" selection-end-line="78" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/contracts/transaction.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/PicWall.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="708">
+              <caret line="124" column="37" selection-start-line="124" selection-start-column="37" selection-end-line="124" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#45#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/simpleStore.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -311,36 +263,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Tree</find>
-      <find>refresh</find>
-      <find>picWall</find>
-      <find>timer</find>
-      <find>status</find>
-      <find>refreshTravleStatus</find>
-      <find>monkeyN</find>
-      <find>_storyHappen</find>
-      <find>monkey.sta</find>
-      <find>getMo</find>
-      <find>_getMonkeycount</find>
-      <find>_getMonke</find>
-      <find>getPicW</find>
-      <find>bag</find>
-      <find>market</find>
-      <find>load</find>
-      <find>ge</find>
-      <find>pic_wall-bg</find>
-      <find>top:</find>
-      <find>pic-bg</find>
-      <find>bag-bg</find>
-      <find>vip-bg</find>
-      <find>top: 85%</find>
-      <find>contain</find>
-      <find>_button</find>
-      <find>market_button</find>
-      <find>getBag</find>
+      <find>banana</find>
+      <find>wallet-bu</find>
+      <find>first</find>
+      <find>&lt;monkey</find>
       <find>picW</find>
-      <find>frontbg_m</find>
-      <find>frontbg</find>
+      <find>picWa</find>
+      <find>getpic</find>
+      <find>First F</find>
+      <find>Banana</find>
+      <find>pic</find>
+      <find>check</find>
+      <find>pi</find>
+      <find>picWall</find>
+      <find>.market-bg</find>
+      <find>background-size</find>
+      <find>goods</find>
+      <find>vh</find>
+      <find>131</find>
+      <find>addBanan</find>
+      <find>getBananaF</find>
+      <find>contain</find>
+      <find>1000</find>
+      <find>getBanan</find>
+      <find>alert(err);</find>
+      <find>err));</find>
+      <find>err</find>
+      <find>alert</find>
+      <find>setHasMonkey</find>
+      <find>getMonkey</find>
+      <find>freeMo</find>
     </findStrings>
     <replaceStrings>
       <replace>getProduct</replace>
@@ -362,6 +314,8 @@
       <replace>cover</replace>
       <replace>top: 151vw</replace>
       <replace>Math.random() * 10 + 60</replace>
+      <replace>alert(err.message);</replace>
+      <replace>err.message));</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -379,33 +333,34 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/nervos.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/public/css/main.css" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/components/Store.jsx" />
         <option value="$PROJECT_DIR$/src/components/Quilt.jsx" />
         <option value="$PROJECT_DIR$/src/components/Bed.jsx" />
-        <option value="$PROJECT_DIR$/src/contracts/transaction.js" />
         <option value="$PROJECT_DIR$/src/simpleStore.js" />
         <option value="$PROJECT_DIR$/src/components/style/bag.css" />
         <option value="$PROJECT_DIR$/src/containers/Home/indexbak.js" />
         <option value="$PROJECT_DIR$/src/store/index.js" />
         <option value="$PROJECT_DIR$/src/store/mySaga.js" />
-        <option value="$PROJECT_DIR$/src/config.js" />
         <option value="$PROJECT_DIR$/src/components/Monkey.jsx" />
         <option value="$PROJECT_DIR$/src/components/style/pc.css" />
         <option value="$PROJECT_DIR$/src/components/PC.jsx" />
-        <option value="$PROJECT_DIR$/src/contracts/chain.js" />
         <option value="$PROJECT_DIR$/src/components/Tree.jsx" />
         <option value="$PROJECT_DIR$/src/components/style/pic_wall.css" />
-        <option value="$PROJECT_DIR$/src/components/PicWall.jsx" />
-        <option value="$PROJECT_DIR$/src/components/Bag.jsx" />
-        <option value="$PROJECT_DIR$/src/store/reducer.js" />
         <option value="$PROJECT_DIR$/src/containers/Home/homebak.css" />
-        <option value="$PROJECT_DIR$/src/components/Market.jsx" />
-        <option value="$PROJECT_DIR$/src/components/Vip.jsx" />
         <option value="$PROJECT_DIR$/src/components/Wallet.jsx" />
+        <option value="$PROJECT_DIR$/src/config.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/public/manifest.json" />
+        <option value="$PROJECT_DIR$/src/components/Bag.jsx" />
         <option value="$PROJECT_DIR$/src/containers/Home/home.css" />
+        <option value="$PROJECT_DIR$/src/components/PicWall.jsx" />
+        <option value="$PROJECT_DIR$/src/contracts/chain.js" />
+        <option value="$PROJECT_DIR$/src/contracts/transaction.js" />
+        <option value="$PROJECT_DIR$/src/store/reducer.js" />
+        <option value="$PROJECT_DIR$/src/components/Vip.jsx" />
+        <option value="$PROJECT_DIR$/src/components/Market.jsx" />
         <option value="$PROJECT_DIR$/src/containers/Home/index.jsx" />
       </list>
     </option>
@@ -425,9 +380,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="152" />
-    <option name="y" value="23" />
-    <option name="width" value="1227" />
+    <option name="x" value="70" />
+    <option name="y" value="449" />
+    <option name="width" value="1406" />
     <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -438,6 +393,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -479,19 +435,12 @@
               <item name="PKUChain" type="b2602c69:ProjectViewProjectNode" />
               <item name="PKUChain" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="PKUChain" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PKUChain" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="store" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -508,15 +457,16 @@
     <key name="OPEN_URL_DIALOG">
       <recent name="http://58.87.125.190:/home/ubuntu/repos/app/web/Travel_Monkey/" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/images" />
       <recent name="$PROJECT_DIR$/src/contracts" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/contracts" />
+      <recent name="$PROJECT_DIR$/src/images" />
       <recent name="$PROJECT_DIR$/src/components" />
       <recent name="$PROJECT_DIR$/src/containers/Home" />
       <recent name="$PROJECT_DIR$/public" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/contracts" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -530,6 +480,19 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="js.build_tools.npm" factoryName="npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <package-manager value="npm" />
+      <envs />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -557,12 +520,26 @@
       <workItem from="1541678596898" duration="676000" />
       <workItem from="1541681275992" duration="9694000" />
       <workItem from="1541724732049" duration="45898000" />
-      <workItem from="1542448367466" duration="912000" />
+      <workItem from="1542448367466" duration="1009000" />
+      <workItem from="1542517869169" duration="65000" />
+      <workItem from="1542517972460" duration="6236000" />
+      <workItem from="1542594180191" duration="4274000" />
+      <workItem from="1542694764267" duration="1000" />
+      <workItem from="1542697081689" duration="770000" />
+      <workItem from="1542773437719" duration="98000" />
+      <workItem from="1542859954279" duration="5183000" />
+      <workItem from="1542961151946" duration="3714000" />
+      <workItem from="1543295920757" duration="1889000" />
+      <workItem from="1543541951215" duration="260000" />
+      <workItem from="1544009619997" duration="412000" />
+      <workItem from="1544257566392" duration="40000" />
+      <workItem from="1545031258082" duration="820000" />
+      <workItem from="1545035484312" duration="1780000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124029000" />
+    <option name="totallyTimeSpent" value="149668000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -574,10 +551,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="152" y="23" width="1227" height="877" extended-state="0" />
+    <frame x="70" y="449" width="1406" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19568823" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16606498" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -592,12 +569,34 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32866243" />
       <window_info anchor="bottom" id="TypeScript" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.35923567" />
-      <window_info anchor="bottom" id="File Transfer" order="12" weight="0.16815287" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.35923567" />
+      <window_info anchor="bottom" id="File Transfer" order="12" visible="true" weight="0.16746987" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16208598" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3299363" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3299363" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3299363" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32866243" />
+      <window_info anchor="bottom" id="TypeScript" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.35923567" />
+      <window_info anchor="bottom" id="File Transfer" order="12" visible="true" weight="0.16746987" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -616,87 +615,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/images/tree_hasfruit.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/images/pic.jpg" />
-    <entry file="file://$PROJECT_DIR$/src/images/bg_m.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/images/bed_m.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Store.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/images/frontbg.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/images/vip_m.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Bed.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Quilt.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="http://58.87.125.190:/home/ubuntu/repos/app/web/Travel_Monkey/">
-      <provider selected="true" editor-type-id="httpFileEditor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/style/bag.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/contracts/transaction.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/es6-promise/es6-promise.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="33" column="2" selection-start-line="33" selection-start-column="2" selection-end-line="33" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simpleStore.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-redux/es/connect/connect.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
-          <caret line="102" column="15" selection-start-line="102" selection-start-column="15" selection-end-line="102" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/store/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -738,30 +656,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="127" column="67" selection-start-line="127" selection-start-column="48" selection-end-line="127" selection-end-column="67" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="16" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/contracts/chain.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="83" column="13" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Tree.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="23" column="33" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -775,32 +669,15 @@
     <entry file="file://$PROJECT_DIR$/src/images/vip_bg.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/PC.jsx">
+    <entry file="file://$PROJECT_DIR$/src/components/Wallet.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+        <state relative-caret-position="473">
+          <caret line="57" column="51" selection-start-line="57" selection-start-column="51" selection-end-line="57" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/PicWall.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1440">
-          <caret line="111" column="17" selection-start-line="111" selection-start-column="17" selection-end-line="111" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/style/pic_wall.css">
+    <entry file="file://$PROJECT_DIR$/src/components/Name.jsx">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Market.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="90" column="56" selection-start-line="90" selection-start-column="56" selection-end-line="90" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/images/goods4.png">
       <provider selected="true" editor-type-id="images" />
@@ -817,23 +694,6 @@
     <entry file="file://$PROJECT_DIR$/src/images/goods0.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Vip.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="66" column="42" selection-start-line="66" selection-start-column="42" selection-end-line="66" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/store/reducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/contracts/CoreContract.sol">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -841,65 +701,181 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Wallet.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="57" column="51" selection-start-line="57" selection-start-column="51" selection-end-line="57" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Name.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Monkey.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="41" column="40" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Bag.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/images/bg.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/images/bg_m.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/images/frontbg_m.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/images/bg.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/PC.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/style/pic_wall.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-139" />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/images/bit_0_0_m.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/images/bit_0_1_m.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/images/bit_0_1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/images/bit_0_0.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/images/wallet_m.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/react.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="878" column="8" selection-start-line="878" selection-start-column="8" selection-end-line="878" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/images/banana_m.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Monkey.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="37" column="36" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/images/bag_m.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/images/bit_back.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/images/bit_stand.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/images/wallet.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/manifest.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/Home/home.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6780">
-          <caret line="464" selection-start-line="464" selection-end-line="464" />
+        <state relative-caret-position="6855">
+          <caret line="457" column="29" selection-start-line="457" selection-start-column="29" selection-end-line="457" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Tree.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="42" column="59" selection-start-line="42" selection-start-column="59" selection-end-line="42" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Bag.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/contracts/chain.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="41" column="23" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/store/reducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="37" column="37" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpleStore.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="64" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="64" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/containers/Home/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="410" column="52" selection-start-line="410" selection-start-column="52" selection-end-line="410" selection-end-column="52" />
+        <state relative-caret-position="118">
+          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/contracts/transaction.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/PicWall.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="708">
+          <caret line="124" column="37" selection-start-line="124" selection-start-column="37" selection-end-line="124" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Market.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="708">
+          <caret line="78" column="9" selection-start-line="78" selection-start-column="9" selection-end-line="78" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Vip.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
         </state>
       </provider>
     </entry>

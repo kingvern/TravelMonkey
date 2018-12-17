@@ -5,7 +5,7 @@ import market_m from '../images/market_m.png'
 import Modal from 'react-modal';
 import connect from "react-redux/es/connect/connect";
 
-import {addBanana} from "../contracts/chain";
+import {addBanana, getBananacount, getMonkey} from "../contracts/chain";
 import vip_m from "../images/vip_m.png";
 
 const {
@@ -53,9 +53,52 @@ class Vip extends React.Component {
     }
 
     _addBanana() {
-        let value = this.state.input;
-        addBanana(value)
-            .then(_ => this.closeModal())
+        if(!this.props.hasMonkey){
+            alert('还没有猴子！')
+        }else {
+            let value = this.state.input;
+            let re = /^[0-9]+.?[0-9]*$/; //判断字符串是否为数字 //判断正整数 /^[1-9]+[0-9]*]*$/
+
+            if (!re.test(value)) {
+                alert('请输入数字！')
+            }else {
+                addBanana(value)
+                    .then(_ => {
+                        this._getMonkey()
+                        this._getTree()
+                        this.closeModal()
+                    })
+            }
+        }
+
+
+    }
+
+    _getTree() {
+        getBananacount()
+            .then(treeFruits => {
+                this.props.setTreeFruits(treeFruits)
+            })
+            .catch(e => alert(e))
+    }
+
+    _getMonkey() {
+        getMonkey()
+            .then((arr) => {
+                    let monkey = {
+                        key: arr[0],
+                        gene: arr[1],
+                        mood: arr[2],
+                        banana: arr[3],
+                        state: arr[4],
+                        owner: arr[5]
+                    }
+                    this.props.setMonkey(monkey)
+                    // alert('monkey' + JSON.stringify(monkey))
+                    //key gene mood banana state owner
+                }
+            )
+            .catch(e => alert(e))
     }
 
 
@@ -87,11 +130,20 @@ class Vip extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return {}
+    return {
+        hasMonkey:state.hasMonkey
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {}
+    return {
+        setMonkey(b) {
+            dispatch({type: 'setMonkey', data: b});
+        },
+
+        setTreeFruits(treeFruits) {
+            dispatch({type: 'setTreeFruits', data: treeFruits});
+        },}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Vip);

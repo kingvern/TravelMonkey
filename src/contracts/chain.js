@@ -38,7 +38,9 @@ export const getTX = (m) =>
         if (m !== 0) {
             tx = {
                 ...tx,
-                value: '0x0' + m,
+                // value: parseInt(m,16),
+                value: parseInt(m).toString(16),
+                // value: '0x0' + m,
             };
         }
         return tx;
@@ -165,15 +167,16 @@ export const freeMonkey = async function () {
                 .methods.freeMonkey()
                 .send(tx)
                 .then(res => {
-                    alert(JSON.stringify(res));
+                    // alert(JSON.stringify(res));
                     let hash;
                     if (JSON.stringify(res).indexOf("hash") !== -1) {
                         hash = res.hash;
                     } else {
                         hash = res;
                     }
-                    alert(hash)
+                    // alert(hash)
                     if (hash) {
+                        alert('主人，你好！以后请多多指教~~  =￣ω￣=')
                         window.nervos.listeners
                             .listenToTransactionReceipt(hash)
                             .then(receipt => {
@@ -185,7 +188,7 @@ export const freeMonkey = async function () {
                                 }
                             })
                             .catch(err => {
-                                console.log(err);
+                                alert('listenToTransactionReceipt' + err);
                                 reject(err);
                             });
                     } else {
@@ -193,7 +196,7 @@ export const freeMonkey = async function () {
                     }
                 })
                 .catch(err => {
-                    alert(err);
+                    alert(err.message);
                     resolve(err.errorMessage);
                 });
         });
@@ -203,12 +206,12 @@ export const freeMonkey = async function () {
 // 3-1 买香蕉
 export const addBanana = async function (n) {
     return await new Promise((resolve, reject) => {
-        getTX(n + 1).then(tx => {
+        getTX(n).then(tx => {
             getTokenContract()
                 .methods.addBanana(n)
                 .send(tx)
                 .then(res => {
-                    alert(JSON.stringify(res));
+                    // alert(JSON.stringify(res));
                     let hash;
                     if (JSON.stringify(res).indexOf("hash") !== -1) {
                         hash = res.hash;
@@ -216,6 +219,7 @@ export const addBanana = async function (n) {
                         hash = res;
                     }
                     if (hash) {
+                        alert('购买成功！')
                         window.nervos.listeners
                             .listenToTransactionReceipt(hash)
                             .then(receipt => {
@@ -227,7 +231,7 @@ export const addBanana = async function (n) {
                                 }
                             })
                             .catch(err => {
-                                alert(err);
+                                alert('listenToTransactionReceipt' + err);
                                 reject(err);
                             });
                     } else {
@@ -235,7 +239,7 @@ export const addBanana = async function (n) {
                     }
                 })
                 .catch(err => {
-                    alert(err);
+                    alert(err.message);
                     resolve(err.errorMessage);
                 });
         });
@@ -250,7 +254,7 @@ export const getBananaFromTree = async function () {
                 .methods.getBananaFromTree()
                 .send(tx)
                 .then(res => {
-                    alert('getBananaFromTree suc' + JSON.stringify(res));
+                    // alert('getBananaFromTree suc' + JSON.stringify(res));
                     let hash;
                     if (JSON.stringify(res).indexOf("hash") !== -1) {
                         hash = res.hash;
@@ -277,7 +281,7 @@ export const getBananaFromTree = async function () {
                     }
                 })
                 .catch(err => {
-                    alert('getBananaFromTree fail' + err);
+                    alert(err.message)
                     resolve(err.errorMessage);
                 });
         });
@@ -319,7 +323,7 @@ export const buyProduct = async function (i,value) {
                     }
                 })
                 .catch(err => {
-                    alert('buyProduct fail' + err);
+                    alert(err.message)
                     resolve(err.errorMessage);
                 });
         });
@@ -334,7 +338,6 @@ export const checkWalkout = async function () {
                 .methods.checkWalkout()
                 .send(tx)
                 .then(res => {
-                    alert('checkWalkout suc' + JSON.stringify(res));
                     let hash;
                     if (JSON.stringify(res).indexOf("hash") !== -1) {
                         hash = res.hash;
@@ -342,6 +345,8 @@ export const checkWalkout = async function () {
                         hash = res;
                     }
                     if (hash) {
+                        alert('我出去啦！=￣ω￣=');
+
                         window.nervos.listeners
                             .listenToTransactionReceipt(hash)
                             .then(receipt => {
@@ -361,7 +366,7 @@ export const checkWalkout = async function () {
                     }
                 })
                 .catch(err => {
-                    alert('checkWalkout fail' + err);
+                    alert(err.message)
                     resolve(err.errorMessage);
                 });
         });
@@ -376,7 +381,7 @@ export const backHome = async function () {
                 .methods.backHome()
                 .send(tx)
                 .then(res => {
-                    alert('backHome suc' + JSON.stringify(res));
+                    // alert('backHome suc' + JSON.stringify(res));
                     let hash;
                     if (JSON.stringify(res).indexOf("hash") !== -1) {
                         hash = res.hash;
@@ -384,6 +389,7 @@ export const backHome = async function () {
                         hash = res;
                     }
                     if (hash) {
+                        alert('我回来啦！ =￣ω￣=');
                         window.nervos.listeners
                             .listenToTransactionReceipt(hash)
                             .then(receipt => {
@@ -403,7 +409,7 @@ export const backHome = async function () {
                     }
                 })
                 .catch(err => {
-                    alert('checkWalkout fail' + err);
+                    alert(err.message)
                     resolve(err.errorMessage);
                 });
         });
